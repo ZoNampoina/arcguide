@@ -1,0 +1,1528 @@
+<!doctype html><html lang="fr"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/><meta name="theme-color" content="#0e1728"/><meta name="description" content="ARCGUIDE, votre aide-mémoire ArcGIS Pro et SIG minier, accessible hors ligne."/><style>:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color-scheme:light;--bg:#f6f8fb;--paper:#fff;--side:#101d2d;--side2:#1b2d40;--text:#17293c;--muted:#607387;--border:#e1e8ed;--soft:#f1f5f7;--accent:#1e746b;--accent-dark:#16594f;--accent-soft:#e2f3ed;--shadow:0 9px 26px rgba(14,32,55,.055)}
+:root[data-theme=dark]{color-scheme:dark;--bg:#0d1520;--paper:#142232;--side:#0a111c;--side2:#152637;--text:#e8f2f3;--muted:#9baebd;--border:#29404f;--soft:#1d3041;--accent:#6ed9be;--accent-dark:#8debd2;--accent-soft:#173c3c;--shadow:0 10px 25px rgba(0,0,0,.13)}
+@media(prefers-color-scheme:dark){:root[data-theme=auto]{color-scheme:dark;--bg:#0d1520;--paper:#142232;--side:#0a111c;--side2:#152637;--text:#e8f2f3;--muted:#9baebd;--border:#29404f;--soft:#1d3041;--accent:#6ed9be;--accent-dark:#8debd2;--accent-soft:#173c3c;--shadow:0 10px 25px rgba(0,0,0,.13)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-size:14px;line-height:1.55}button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #42b4a6;outline-offset:2px}a{color:var(--accent)}.shell{min-height:100dvh;display:flex}.sidebar{width:249px;flex:0 0 249px;background:var(--side);color:#d7e4e9;display:flex;flex-direction:column;position:sticky;top:0;height:100dvh;padding:29px 15px 20px}.brand{display:flex;gap:11px;align-items:center;margin:0 12px 42px}.brand-mark{height:40px;width:40px;border-radius:12px;background:linear-gradient(135deg,#2c998e,#17647d);color:white;font-size:28px;font-weight:800;text-align:center;position:relative;line-height:40px}.brand-mark span{font-size:11px;color:#a8e9e0;position:absolute;right:7px;bottom:-7px}.brand strong{display:block;font-size:16px;letter-spacing:.05em;color:white;line-height:1.4}.brand small{display:block;color:#9fb4c1;font-size:10px;letter-spacing:.025em}.nav-label{font-size:10px;letter-spacing:.14em;color:#8299aa;margin:0 13px 15px;font-weight:700}.sidebar nav{display:grid;gap:4px}.nav-item{border:0;background:transparent;color:#b8cbd5;padding:12px 15px;border-radius:10px;display:flex;gap:13px;align-items:center;text-align:left;font-size:13px;width:100%;transition:.16s}.nav-item:hover{background:#203248;color:white}.nav-item.active{background:#26433f;color:#a4eadb;font-weight:650}.nav-icon{font-size:19px;line-height:1;width:21px;text-align:center}.nav-count{margin-left:auto;background:#245849;color:#c2f3e5;padding:0 7px;border-radius:12px;font-size:11px}.side-bottom{margin-top:auto}.offline-chip{font-size:10px;color:#aacabd;background:#142a34;padding:10px;border-radius:9px;margin:15px 3px}.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4cc7a7;vertical-align:middle;margin-right:6px}.side-caption{font-size:10px;color:#728a9d;padding:0 10px}.main-column{min-width:0;flex:1}.topbar{height:75px;border-bottom:1px solid var(--border);background:var(--paper);display:flex;justify-content:space-between;align-items:center;padding:0 46px}.breadcrumb{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:11px}.breadcrumb strong{color:var(--text);font-weight:600}.slash{color:#a0afb8}.top-actions{display:flex;align-items:center;gap:18px;color:var(--muted);font-size:12px}.iconbtn{border:0;background:transparent;color:var(--muted);font-size:24px;line-height:1;width:35px;height:35px;border-radius:8px}.iconbtn:hover{background:var(--soft);color:var(--text)}.content{max-width:1300px;margin:0 auto;padding:39px 46px 70px;min-height:calc(100dvh - 140px)}.hero{border-radius:19px;padding:48px 47px 25px;background:radial-gradient(circle at 91% 11%,#1d6461 0,transparent 38%),linear-gradient(126deg,#122a3c,#173c43);color:white;min-height:327px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:'';width:340px;height:340px;border:1px solid rgba(139,217,208,.17);border-radius:45%;transform:rotate(25deg);position:absolute;right:-120px;top:-110px;pointer-events:none}.hero-overline{font-size:10px;letter-spacing:.16em;font-weight:800;color:#9ad7cb}.dot{display:inline-block;background:#5adeb7;width:6px;height:6px;border-radius:50%;margin-right:9px}.hero h1{font-size:clamp(30px,3.3vw,44px);line-height:1.2;letter-spacing:-.04em;margin:14px 0;font-weight:760}.hero h1 span{color:#78dbc7}.hero p{max-width:540px;color:#c1d6dd;margin:0 0 23px;font-size:13px}.searchbox{display:flex;align-items:center;background:var(--paper);border:1px solid var(--border);border-radius:10px;gap:11px;padding:0 15px;min-height:53px;box-shadow:var(--shadow)}.hero-search{max-width:640px;border:0}.searchbox input{border:0;outline:0;background:transparent;color:var(--text);width:100%;min-width:0;font-size:13px}.searchbox input:focus{outline:0}.search-icon{font-size:24px;color:#8498a4;line-height:1}.searchbox kbd{border:1px solid var(--border);font-size:12px;color:var(--muted);border-radius:5px;padding:1px 7px}.hero-bottom{display:flex;justify-content:space-between;gap:16px;color:#9cb8c3;font-size:10px;padding-top:18px}.section{margin-top:33px}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:17px}.eyebrow{font-size:10px;letter-spacing:.135em;font-weight:800;color:var(--accent);text-transform:uppercase}.section h2,.setting-panel h2,.diagnostic-main h2,.mining-banner h2{font-size:20px;line-height:1.3;letter-spacing:-.025em;margin:4px 0 0}.text-button{padding:4px 0;border:0;background:transparent;color:var(--accent);font-size:12px;font-weight:700}.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.quick{background:var(--paper);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:12px;display:flex;align-items:center;text-align:left;gap:13px;padding:18px 17px;color:var(--text);font-weight:640}.quick:hover,.guide-card:hover{border-color:#87b9af;transform:translateY(-1px)}.quick-icon{width:34px;height:34px;border-radius:9px;background:var(--accent-soft);display:grid;place-items:center;font-size:18px;color:var(--accent)}.quick-arrow{margin-left:auto;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.guide-card{position:relative;background:var(--paper);border:1px solid var(--border);border-radius:13px;padding:17px 19px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:9px;transition:.16s;min-width:0;cursor:pointer}.card-top{display:flex;align-items:center;justify-content:space-between;gap:4px}.cat-label{color:var(--accent);font-weight:700;font-size:10px;letter-spacing:.015em}.star{background:transparent;border:0;font-size:23px;line-height:1;color:#8b9ca9;padding:0 2px}.star.active{color:#d3a54c}.guide-card h3{font-size:15px;line-height:1.38;margin:0;letter-spacing:-.01em}.guide-card p{font-size:12px;color:var(--muted);margin:0;flex:1;line-height:1.6}.card-footer{display:flex;gap:8px;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);color:var(--muted);font-size:11px;margin-top:6px}.card-footer span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.arrow{color:var(--accent);font-size:19px}.footer{padding:25px 46px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:16px}.page-heading{margin-bottom:26px}.page-heading h1{font-size:34px;letter-spacing:-.04em;line-height:1.22;margin:7px 0 9px}.page-heading p{color:var(--muted);margin:0}.bar-search{margin-bottom:17px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}.chip{border:1px solid var(--border);background:var(--paper);color:var(--muted);border-radius:7px;padding:7px 11px;font-size:11px}.chip.selected{background:var(--accent-soft);color:var(--accent);border-color:#9bcbbd;font-weight:750}.subheading{font-size:15px!important}.small-muted{font-size:11px;color:var(--muted)}.empty{text-align:center;background:var(--paper);padding:68px 18px;border:1px dashed var(--border);border-radius:15px}.empty-icon{font-size:41px;color:var(--accent)}.empty h3{margin:3px 0}.empty p{color:var(--muted);margin:0 0 19px}.btn{border:1px solid var(--border);background:var(--paper);color:var(--text);padding:11px 15px;border-radius:9px;font-weight:680;font-size:12px;transition:.12s}.btn:hover{border-color:var(--accent)}.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--paper)}.btn.primary:hover{background:var(--accent-dark)}.btn.small{padding:8px 11px;font-size:11px}.btn.subtle{color:var(--muted);background:transparent}.flex-heading{display:flex;justify-content:space-between;align-items:center;gap:20px}.notes-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.note-card{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px;justify-content:space-between}.note-date{font-size:11px;color:var(--muted)}.note-card h3{margin:5px 0;font-size:17px}.note-card p{color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}.note-tags{font-size:11px;color:var(--accent)}.note-actions{display:flex;gap:7px}.diagnostic-layout{display:grid;grid-template-columns:minmax(220px,1fr) minmax(340px,1.6fr);gap:18px}.diagnostic-list,.diagnostic-main,.setting-panel{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:25px;box-shadow:var(--shadow)}.issue{border:0;background:transparent;color:var(--text);padding:14px 8px;display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--border);width:100%;text-align:left}.issue.active{color:var(--accent);font-weight:800}.diagnostic-main h2{margin:13px 0 18px}.choice-list{display:grid;gap:11px}.choice{border:1px solid var(--border);border-radius:10px;padding:13px;text-align:left;background:var(--paper);color:var(--text);display:flex;gap:13px;align-items:center}.choice.active{border-color:var(--accent);background:var(--accent-soft)}.choice-circle{height:20px;width:20px;border:1px solid var(--muted);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-size:17px}.diagnosis-answer{margin-top:22px;background:var(--accent-soft);padding:19px;border-radius:10px}.diagnosis-answer p{margin:12px 0;color:var(--text)}.hint{margin-top:25px;color:var(--muted);font-size:12px}.mining-banner{background:linear-gradient(120deg,#143342,#17636b);color:#edf9f4;border-radius:14px;display:flex;align-items:center;justify-content:space-between;padding:28px 34px;gap:15px}.mining-banner .eyebrow{color:#9fe4d6}.mining-banner p{max-width:700px;color:#d0e5e5}.mining-symbol{font-size:95px;opacity:.2}.count-pill{border-radius:30px;background:var(--accent-soft);color:var(--accent);padding:4px 14px;font-weight:750}.progress{height:7px;border-radius:6px;background:var(--border);overflow:hidden;margin-bottom:15px}.progress>div{height:100%;background:var(--accent);transition:width .2s}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:16px}.check-item{display:flex;align-items:center;gap:11px;color:var(--text);background:var(--paper);border:1px solid var(--border);padding:13px;border-radius:9px;cursor:pointer}.check-item input{accent-color:var(--accent);width:16px;height:16px}.settings-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.setting-panel h2{margin-bottom:16px}.setting-panel p{color:var(--muted)}.setting-panel select,.note-modal input,.note-modal textarea{width:100%;background:var(--paper);border:1px solid var(--border);border-radius:9px;padding:12px;color:var(--text)}.formlabel{font-size:11px;font-weight:700;margin:13px 0 5px;display:block}.setting-panel .check-item{margin-top:17px}.action-stack{display:flex;flex-direction:column;align-items:flex-start;gap:9px}.visually-hidden{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}.modal-backdrop{position:fixed;inset:0;background:rgba(5,13,26,.65);display:grid;place-items:center;padding:14px;z-index:50}.detail-modal,.note-modal{background:var(--paper);color:var(--text);border-radius:17px;max-height:min(92dvh,920px);width:min(730px,100%);box-shadow:0 24px 80px rgba(0,0,0,.25);overflow:hidden;display:flex;flex-direction:column}.detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border);padding:24px 29px}.detail-head h2{font-size:24px;line-height:1.3;margin:7px 0 0}.detail-scroll{overflow:auto;padding:24px 29px 31px}.detail-meta{display:flex;flex-wrap:wrap;gap:7px}.pill{font-size:10px;font-weight:730;border-radius:6px;background:var(--accent-soft);color:var(--accent);padding:4px 9px}.pill.neutral{background:var(--soft);color:var(--muted)}.pill.caution{background:#f8f0dc;color:#946d17}.lead{font-size:14px;line-height:1.7}.detail-tools{display:flex;flex-wrap:wrap;gap:8px;margin:19px 0 25px}.path-label{font-size:10px;color:var(--muted);font-weight:800;letter-spacing:.1em}.toolpath{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:10px 12px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:7px}.toolpath code{white-space:normal;overflow-wrap:anywhere;font-size:12px}.detail-section{margin:26px 0}.detail-section h3{font-size:16px}.steps{counter-reset:step;list-style:none;padding:0;display:grid;gap:13px}.steps li{counter-increment:step;display:flex;gap:12px;align-items:flex-start}.steps li:before{content:counter(step);flex:0 0 26px;height:26px;background:var(--accent-soft);color:var(--accent);border-radius:50%;display:grid;place-items:center;font-weight:750;font-size:12px}.tip-box{background:var(--accent-soft);border-radius:10px;padding:16px 18px}.tip-box strong{font-size:12px;color:var(--accent)}.tip-box p{margin:5px 0 0}.expander{border-bottom:1px solid var(--border);padding:15px 0}.expander summary{cursor:pointer;font-weight:730}.expander p{color:var(--muted)}.reference-link{font-weight:700}.detail-bottom-note{font-size:11px;color:var(--muted);margin-top:25px}.note-modal{padding-bottom:25px;overflow:auto}.note-modal .formlabel,.note-modal input,.note-modal textarea{margin-left:29px;margin-right:29px;width:calc(100% - 58px)}.note-modal textarea{resize:vertical;min-height:150px}.form-actions{padding:20px 29px 0;display:flex;justify-content:flex-end;gap:9px}.mobile-nav{display:none}.loading-shell,.fatal{margin:18vh auto;text-align:center;max-width:500px;padding:25px}.loading-shell h1,.fatal h1{letter-spacing:.1em;color:var(--accent)}#toast{position:fixed;bottom:24px;right:24px;background:#143a36;color:white;padding:11px 18px;border-radius:9px;z-index:100;opacity:0;pointer-events:none;transform:translateY(10px);transition:.15s}#toast.visible{opacity:1;transform:translateY(0)}:root[data-compact=yes] .guide-card{padding:12px;gap:5px}:root[data-compact=yes] .guide-card p{font-size:11px}
+@media(max-width:1120px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:31px 27px 50px}.topbar{padding:0 27px}.footer{padding:22px 27px}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar{width:218px;flex-basis:218px}}
+@media(max-width:750px){.sidebar{display:none}.topbar{height:58px;padding:0 19px}.content{padding:20px 16px 93px}.footer{display:none}.mobile-nav{display:flex;position:fixed;bottom:0;left:0;right:0;height:66px;z-index:20;background:var(--paper);border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom);justify-content:space-around;box-shadow:0 -7px 20px rgba(0,0,0,.04)}.mobile-nav button{color:var(--muted);background:transparent;border:0;min-width:55px;display:grid;place-content:center;gap:2px}.mobile-nav button.active{color:var(--accent);font-weight:750}.mobile-nav button>span{font-size:22px;line-height:1}.mobile-nav small{font-size:10px}.hero{padding:30px 22px 18px;min-height:0}.hero h1{font-size:31px}.hero p{font-size:12px}.hero-bottom{flex-wrap:wrap;gap:5px}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.quick{padding:13px 11px;gap:9px;font-size:12px}.quick-icon{width:31px;height:31px}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.guide-card{padding:13px}.guide-card h3{font-size:13px}.guide-card p{font-size:11px}.card-footer{font-size:10px}.page-heading h1{font-size:29px}.notes-list,.diagnostic-layout,.settings-grid,.checklist{grid-template-columns:1fr}.diagnostic-list,.diagnostic-main,.setting-panel{padding:19px}.flex-heading{align-items:flex-start;flex-direction:column}.detail-modal,.note-modal{max-height:96dvh}.detail-head{padding:20px}.detail-head h2{font-size:20px}.detail-scroll{padding:19px}.mining-banner{padding:19px}.mining-symbol{display:none}.desktop-only{display:none}#toast{bottom:83px;left:15px;right:15px;text-align:center}}
+@media(max-width:450px){.cards{grid-template-columns:1fr}.guide-card{padding:16px}.guide-card h3{font-size:15px}.quick-grid{grid-template-columns:1fr 1fr}.quick{flex-direction:column;align-items:flex-start}.quick-arrow{display:none}.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px}.chip{flex:0 0 auto}.hero h1{font-size:29px}.hero-search{min-height:47px}.searchbox kbd{display:none}}
+@media print{.sidebar,.topbar,.footer,.mobile-nav,.detail-tools,.detail-head .iconbtn{display:none!important}.modal-backdrop{position:static;background:transparent;padding:0}.detail-modal{max-height:none;overflow:visible;box-shadow:none;width:100%}.detail-scroll{overflow:visible}.shell{display:none}.detail-head{border-bottom:2px solid #333}body{background:white;color:black}#toast{display:none}}
+</style><title>ARCGUIDE — Référence ArcGIS Pro</title><link rel="manifest" href="./manifest.webmanifest"/><link rel="icon" type="image/svg+xml" href="./icon.svg"/></head><body><div id="app"><main class="loading-shell"><h1>ARCGUIDE</h1><p>Chargement de la bibliothèque locale…</p></main></div><script>const INLINE_GUIDES = [
+  {
+    "id": "SEL-001",
+    "category": "Sélection & couches",
+    "title": "Sélectionner des points dans un polygone",
+    "tool": "Select By Location",
+    "path": "Map > Selection > Select By Location",
+    "summary": "Sélectionner les points selon une relation spatiale avec un périmètre.",
+    "steps": [
+      "Choisir les points comme Input Features.",
+      "Choisir la relation Within pour les points strictement à l’intérieur, ou Intersect si la frontière doit être incluse.",
+      "Indiquer les polygones dans Selecting Features.",
+      "Exécuter et vérifier le nombre d’entités sélectionnées."
+    ],
+    "tip": "Une sélection ne crée pas de nouvelles données : utiliser Export Features pour conserver le résultat.",
+    "verify": "Vérifier la sélection dans la table attributaire et contrôler des points aux limites.",
+    "common": "Within et Intersect ne donnent pas nécessairement les mêmes résultats sur la frontière.",
+    "keywords": [
+      "polygone",
+      "points",
+      "carrés",
+      "within",
+      "intersection",
+      "selection",
+      "spatial"
+    ],
+    "source": "https://pro.arcgis.com/en/pro-app/3.6/tool-reference/data-management/select-layer-by-location.htm",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-002",
+    "category": "Sélection & couches",
+    "title": "Sélectionner selon un attribut",
+    "tool": "Select By Attributes",
+    "path": "Map > Selection > Select By Attributes",
+    "summary": "Filtrer des entités à partir de leurs attributs.",
+    "steps": [
+      "Choisir la couche cible.",
+      "Construire la clause SQL avec un champ, un opérateur et une valeur.",
+      "Tester l’expression puis exécuter.",
+      "Vérifier les lignes sélectionnées dans la table."
+    ],
+    "tip": "Utiliser IS NULL pour les valeurs nulles plutôt que = NULL.",
+    "verify": "La sélection correspond à la clause attendue.",
+    "common": "Vérifier les guillemets et les types texte/nombre.",
+    "keywords": [
+      "where",
+      "sql",
+      "attribut",
+      "permis",
+      "filtre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-003",
+    "category": "Sélection & couches",
+    "title": "Exporter uniquement les entités sélectionnées",
+    "tool": "Export Features",
+    "path": "Data > Export Features",
+    "summary": "Créer une classe d’entités à partir d’une sélection.",
+    "steps": [
+      "Sélectionner les entités voulues.",
+      "Ouvrir Export Features depuis la couche.",
+      "Définir la géodatabase et le nom de sortie.",
+      "Exécuter puis comparer le nombre d’entités."
+    ],
+    "tip": "Contrôler qu’une sélection est active avant l’export.",
+    "verify": "La nouvelle classe ne contient que les entités souhaitées.",
+    "common": "Une couche filtrée par requête de définition peut aussi limiter les données exportées.",
+    "keywords": [
+      "exporter",
+      "copie",
+      "sélection"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-004",
+    "category": "Sélection & couches",
+    "title": "Isoler temporairement des entités",
+    "tool": "Definition Query",
+    "path": "Layer Properties > Definition Query",
+    "summary": "Afficher seulement les entités qui respectent une condition.",
+    "steps": [
+      "Ouvrir les propriétés de la couche.",
+      "Ajouter une Definition Query.",
+      "Construire la condition et appliquer.",
+      "Vérifier la table et l’affichage."
+    ],
+    "tip": "La requête masque sans supprimer les entités source.",
+    "verify": "La carte reflète le filtre tandis que la source demeure intacte.",
+    "common": "Ne pas confondre Definition Query et Select By Attributes.",
+    "keywords": [
+      "definition",
+      "query",
+      "masquer",
+      "filtrer"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-005",
+    "category": "Sélection & couches",
+    "title": "Retrouver une couche ou une emprise",
+    "tool": "Zoom To Layer",
+    "path": "Contents > clic droit sur la couche > Zoom To Layer",
+    "summary": "Centrer l’affichage sur l’étendue des entités.",
+    "steps": [
+      "Repérer la couche dans Contents.",
+      "Clic droit, choisir Zoom To Layer.",
+      "Vérifier l’étendue des données.",
+      "Contrôler les filtres si la couche reste invisible."
+    ],
+    "tip": "Une couche géographiquement mal positionnée peut sembler absente.",
+    "verify": "La carte montre normalement les entités de la couche.",
+    "common": "Vérifier aussi les plages d’échelle de visibilité.",
+    "keywords": [
+      "zoom",
+      "invisible",
+      "étendue"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-001",
+    "category": "Données & tables",
+    "title": "Importer un tableau de coordonnées X/Y",
+    "tool": "XY Table To Point",
+    "path": "Analysis > Tools > XY Table To Point",
+    "summary": "Convertir une table Excel ou CSV en couche de points.",
+    "steps": [
+      "Importer une table contenant X et Y numériques.",
+      "Choisir la table, les champs X et Y, et la sortie.",
+      "Définir le système de coordonnées SOURCE réel des valeurs.",
+      "Exécuter, visualiser et contrôler avec un point connu."
+    ],
+    "tip": "WGS84 n’est pas adapté par défaut aux X/Y projetés Laborde : préciser le système exact.",
+    "verify": "Comparer au moins un point à une référence fiable.",
+    "common": "Confondre longitude/latitude, X/Y et systèmes projetés est une erreur fréquente.",
+    "keywords": [
+      "excel",
+      "csv",
+      "coordonnées",
+      "gps",
+      "xy",
+      "point",
+      "laborde"
+    ],
+    "source": "https://pro.arcgis.com/en/pro-app/3.6/tool-reference/data-management/xy-table-to-point.htm",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-002",
+    "category": "Données & tables",
+    "title": "Calculer la surface ou longueur",
+    "tool": "Calculate Geometry Attributes",
+    "path": "Analysis > Tools > Calculate Geometry Attributes",
+    "summary": "Ajouter des surfaces, longueurs ou coordonnées dans les attributs.",
+    "steps": [
+      "Ajouter un champ de destination approprié.",
+      "Ouvrir Calculate Geometry Attributes.",
+      "Choisir la propriété et les unités.",
+      "Exécuter puis comparer à une géométrie témoin."
+    ],
+    "tip": "Pour les hectares, préciser l’unité de calcul et la méthode appropriée.",
+    "verify": "Les unités et valeurs affichées sont cohérentes.",
+    "common": "Les unités de la couche ne sont pas automatiquement des hectares.",
+    "keywords": [
+      "surface",
+      "hectare",
+      "longueur",
+      "area",
+      "geometry"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-003",
+    "category": "Données & tables",
+    "title": "Joindre une table Excel à une couche",
+    "tool": "Add Join",
+    "path": "Data > Joins and Relates > Add Join",
+    "summary": "Associer des attributs tabulaires à une couche grâce à une clé.",
+    "steps": [
+      "Vérifier que les deux tables ont une clé comparable.",
+      "Préparer les types et formats des identifiants.",
+      "Exécuter Add Join avec les champs clés.",
+      "Contrôler les lignes sans correspondance."
+    ],
+    "tip": "Éviter les espaces invisibles et doublons dans les identifiants.",
+    "verify": "Un échantillon de lignes possède les bonnes valeurs jointes.",
+    "common": "La jointure peut être un-à-plusieurs selon les paramètres et sources.",
+    "keywords": [
+      "join",
+      "jointure",
+      "excel",
+      "id",
+      "table"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-004",
+    "category": "Données & tables",
+    "title": "Compter les valeurs répétées dans une table",
+    "tool": "Summary Statistics",
+    "path": "Analysis > Tools > Summary Statistics",
+    "summary": "Compter les occurrences par exploitant ou identifiant.",
+    "steps": [
+      "Choisir la table.",
+      "Indiquer un champ de regroupement dans Case Field.",
+      "Ajouter un comptage comme statistique si nécessaire.",
+      "Trier les résultats par fréquence."
+    ],
+    "tip": "Utile pour identifier plusieurs enregistrements d’un même titulaire minier.",
+    "verify": "Le total des groupes est cohérent avec les lignes source.",
+    "common": "Nettoyer les variantes orthographiques avant de compter.",
+    "keywords": [
+      "doublon",
+      "comptage",
+      "exploitant",
+      "fréquence"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-005",
+    "category": "Données & tables",
+    "title": "Nettoyer les champs de la table attributaire",
+    "tool": "Fields View",
+    "path": "Data > Fields",
+    "summary": "Renommer l’affichage d’un champ et gérer les propriétés autorisées.",
+    "steps": [
+      "Ouvrir Fields pour la couche.",
+      "Distinguer nom physique et Alias.",
+      "Modifier l’alias si permis.",
+      "Enregistrer les changements."
+    ],
+    "tip": "L’alias améliore la lecture sans toujours renommer le champ source.",
+    "verify": "La nouvelle étiquette de champ apparaît dans la table.",
+    "common": "Certaines propriétés sont non modifiables selon la source.",
+    "keywords": [
+      "alias",
+      "champ",
+      "fields",
+      "table"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-001",
+    "category": "Géotraitement",
+    "title": "Découper une couche avec un périmètre",
+    "tool": "Clip",
+    "path": "Analysis > Tools > Clip",
+    "summary": "Conserver les parties d’entités situées dans une zone de découpe.",
+    "steps": [
+      "Choisir les entités à découper.",
+      "Choisir le polygone de découpe.",
+      "Définir la sortie.",
+      "Exécuter et vérifier l’étendue."
+    ],
+    "tip": "Une découpe modifie la géométrie des sorties, pas les sources.",
+    "verify": "Aucune sortie ne dépasse le périmètre de découpe attendu.",
+    "common": "Contrôler le système de coordonnées et la validité des géométries.",
+    "keywords": [
+      "clip",
+      "découpage",
+      "périmètre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-002",
+    "category": "Géotraitement",
+    "title": "Créer une zone tampon autour d’une route",
+    "tool": "Buffer",
+    "path": "Analysis > Tools > Buffer",
+    "summary": "Construire une zone à distance fixe d’objets.",
+    "steps": [
+      "Choisir les objets (route, point, périmètre).",
+      "Définir distance et unité.",
+      "Choisir si les zones doivent être fusionnées.",
+      "Contrôler le résultat sur la carte."
+    ],
+    "tip": "Pour une distance métrique, vérifier la projection et la méthode géodésique/planaire.",
+    "verify": "La distance mesurée correspond à la méthode choisie.",
+    "common": "Des degrés ne sont pas des mètres.",
+    "keywords": [
+      "buffer",
+      "tampon",
+      "distance",
+      "route"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-003",
+    "category": "Géotraitement",
+    "title": "Trouver les zones de recouvrement",
+    "tool": "Intersect",
+    "path": "Analysis > Tools > Intersect",
+    "summary": "Créer la partie géométrique commune à plusieurs couches.",
+    "steps": [
+      "Choisir les couches en entrée.",
+      "Vérifier leur géométrie et leurs référentiels.",
+      "Définir la sortie et exécuter.",
+      "Contrôler les intersections au visuel."
+    ],
+    "tip": "Utile pour recoupements de périmètres et contraintes environnementales.",
+    "verify": "Les sorties sont dans les zones de recouvrement.",
+    "common": "L’absence de résultat peut venir d’emprises non superposées.",
+    "keywords": [
+      "overlap",
+      "intersect",
+      "recouvrement"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-004",
+    "category": "Géotraitement",
+    "title": "Fusionner les entités par attribut",
+    "tool": "Dissolve",
+    "path": "Analysis > Tools > Dissolve",
+    "summary": "Fusionner des géométries partageant une valeur.",
+    "steps": [
+      "Choisir la couche.",
+      "Sélectionner les champs de regroupement.",
+      "Définir la sortie.",
+      "Vérifier le nombre et la forme des entités."
+    ],
+    "tip": "Ne pas confondre Dissolve (fusion de contours) et Merge (regroupement de données).",
+    "verify": "Les entités ont été regroupées selon le champ.",
+    "common": "Attention aux multiparties et aux attributs conservés.",
+    "keywords": [
+      "dissolve",
+      "fusion",
+      "polygones"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-005",
+    "category": "Géotraitement",
+    "title": "Reporter des attributs par relation spatiale",
+    "tool": "Spatial Join",
+    "path": "Analysis > Tools > Spatial Join",
+    "summary": "Associer les attributs d’une couche à une autre selon leur position.",
+    "steps": [
+      "Choisir Target Features et Join Features.",
+      "Définir la relation spatiale.",
+      "Choisir les règles de correspondance et de regroupement.",
+      "Exécuter et vérifier les lignes résultantes."
+    ],
+    "tip": "Peut enrichir des points terrain avec l’identifiant du périmètre traversé.",
+    "verify": "La table de sortie contient les attributs attendus.",
+    "common": "Vérifier one-to-one versus one-to-many.",
+    "keywords": [
+      "jointure spatiale",
+      "géospatial",
+      "points",
+      "permis"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-006",
+    "category": "Géotraitement",
+    "title": "Corriger des géométries problématiques",
+    "tool": "Repair Geometry",
+    "path": "Analysis > Tools > Check Geometry / Repair Geometry",
+    "summary": "Diagnostiquer puis réparer certaines anomalies géométriques.",
+    "steps": [
+      "Faire une copie de la source.",
+      "Exécuter Check Geometry.",
+      "Examiner les anomalies signalées.",
+      "Tester Repair Geometry sur une copie et revérifier."
+    ],
+    "tip": "Ne pas lancer de réparation irréversible sans sauvegarde préalable.",
+    "verify": "Le contrôle final ne retrouve pas les anomalies traitées.",
+    "common": "Les réparations possibles dépendent du format et de la nature des erreurs.",
+    "keywords": [
+      "géométrie",
+      "invalide",
+      "repair"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-001",
+    "category": "Coordonnées & projections",
+    "title": "Corriger une couche avec référentiel inconnu",
+    "tool": "Define Projection",
+    "path": "Analysis > Tools > Define Projection",
+    "summary": "Attribuer la définition correcte du système de coordonnées, sans changer les X/Y.",
+    "steps": [
+      "Identifier le référentiel source par une source fiable.",
+      "Ouvrir Define Projection.",
+      "Sélectionner le référentiel exact.",
+      "Contrôler la localisation sur la carte."
+    ],
+    "tip": "Define Projection ne reprojette pas les coordonnées : utiliser Project pour transformer les valeurs.",
+    "verify": "Comparer la couche à des points de contrôle connus.",
+    "common": "Ne jamais attribuer WGS84 au hasard à une couche Laborde.",
+    "keywords": [
+      "projection",
+      "define",
+      "crs",
+      "srid",
+      "epsg"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-002",
+    "category": "Coordonnées & projections",
+    "title": "Transformer des données dans un autre système",
+    "tool": "Project",
+    "path": "Analysis > Tools > Project",
+    "summary": "Créer une copie dans un système de coordonnées cible.",
+    "steps": [
+      "Identifier correctement le système source.",
+      "Ouvrir Project et sélectionner la couche.",
+      "Choisir le système cible et, si nécessaire, une transformation géographique valable.",
+      "Contrôler les coordonnées et la localisation après l’export."
+    ],
+    "tip": "Une transformation de datum appropriée peut être nécessaire.",
+    "verify": "Un point contrôle reste à la bonne position au sol.",
+    "common": "La transformation appropriée dépend des référentiels et de la zone.",
+    "keywords": [
+      "reprojection",
+      "wgs84",
+      "utm",
+      "laborde",
+      "project"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-003",
+    "category": "Coordonnées & projections",
+    "title": "Lire correctement une coordonnée GPS",
+    "tool": "WGS84 longitude / latitude",
+    "path": "Map > Go To XY (selon version)",
+    "summary": "Distinguer coordonnées géographiques et coordonnées projetées.",
+    "steps": [
+      "Identifier si les valeurs sont en degrés ou en mètres.",
+      "Pour WGS84 géographique, longitude = X et latitude = Y.",
+      "Contrôler le signe des latitudes/longitudes.",
+      "Comparer à un point connu."
+    ],
+    "tip": "À Madagascar, les latitudes géographiques sont généralement négatives.",
+    "verify": "Le point apparaît dans la région attendue.",
+    "common": "Une inversion longitude/latitude produit un point mal placé.",
+    "keywords": [
+      "gps",
+      "latitude",
+      "longitude",
+      "wgs84"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-004",
+    "category": "Coordonnées & projections",
+    "title": "Vérifier les données en Laborde Madagascar",
+    "tool": "Coordinate Systems",
+    "path": "Map Properties > Coordinate Systems",
+    "summary": "Éviter les confusions entre variantes de projection et transformations.",
+    "steps": [
+      "Consulter les métadonnées et la provenance des coordonnées.",
+      "Identifier la définition exacte du système de référence utilisé.",
+      "Appliquer le bon système source, puis une transformation justifiée si nécessaire.",
+      "Comparer plusieurs points à un fond géoréférencé fiable."
+    ],
+    "tip": "Ne pas inventer le code EPSG ou les paramètres : vérifier le référentiel effectivement fourni par le producteur.",
+    "verify": "Les points témoins présentent des écarts compatibles avec la précision attendue.",
+    "common": "Une superposition visuelle ne suffit pas pour valider un référentiel.",
+    "keywords": [
+      "laborde",
+      "madagascar",
+      "bcmm",
+      "datum",
+      "projection"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-001",
+    "category": "Cartographie & layout",
+    "title": "Créer une mise en page A4 portrait",
+    "tool": "New Layout",
+    "path": "Insert > New Layout",
+    "summary": "Préparer une feuille de cartographie imprimable.",
+    "steps": [
+      "Ouvrir Insert > New Layout.",
+      "Choisir A4 Portrait ou une taille personnalisée équivalente.",
+      "Ajouter Map Frame et les éléments cartographiques.",
+      "Exporter à une résolution adaptée."
+    ],
+    "tip": "Vérifier dimensions, marges et lisibilité à 100 %.",
+    "verify": "La carte est cadrée avec marges cohérentes.",
+    "common": "Ne pas confondre taille écran et taille du papier.",
+    "keywords": [
+      "a4",
+      "layout",
+      "portrait",
+      "cartographie"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-002",
+    "category": "Cartographie & layout",
+    "title": "Conserver deux layouts avec cartes indépendantes",
+    "tool": "Duplicate Map / Map Frame",
+    "path": "Catalog > Maps ; Insert > Map Frame",
+    "summary": "Éviter que la visibilité des couches change dans plusieurs mises en page.",
+    "steps": [
+      "Dupliquer la carte dans Catalog > Maps.",
+      "Configurer les couches de la carte dupliquée.",
+      "Associer chaque layout à sa propre carte via le Map Frame.",
+      "Vérifier qu’une modification de visibilité n’affecte pas l’autre layout."
+    ],
+    "tip": "Les étendues des Map Frames sont indépendantes, mais les couches restent partagées si elles pointent sur la même carte.",
+    "verify": "Masquer une couche dans la copie ne doit pas la masquer dans l’original.",
+    "common": "Copier le layout seul ne sépare pas les cartes.",
+    "keywords": [
+      "geler",
+      "freeze",
+      "layout",
+      "carte",
+      "indépendant"
+    ],
+    "source": "https://pro.arcgis.com/en/pro-app/3.6/help/layouts/add-and-modify-map-frames.htm",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-003",
+    "category": "Cartographie & layout",
+    "title": "Ajouter une grille de coordonnées",
+    "tool": "Add Grid",
+    "path": "Layout > sélectionner Map Frame > Add Grid",
+    "summary": "Afficher la grille ou le graticule adapté au référentiel de la carte.",
+    "steps": [
+      "Sélectionner le Map Frame dans le Layout.",
+      "Choisir Add Grid et le type approprié.",
+      "Configurer l’espacement, les unités, les étiquettes et les bordures.",
+      "Contrôler les valeurs et éviter les chevauchements."
+    ],
+    "tip": "Ne pas confondre graticule de latitude/longitude avec grille projetée.",
+    "verify": "Les graduations correspondent au système annoncé.",
+    "common": "Des unités mal choisies rendent la grille trompeuse.",
+    "keywords": [
+      "grille",
+      "graticule",
+      "coordonnées",
+      "layout"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-004",
+    "category": "Cartographie & layout",
+    "title": "Exporter une carte en PDF",
+    "tool": "Export Layout",
+    "path": "Share > Export Layout",
+    "summary": "Créer un PDF lisible à partir du Layout.",
+    "steps": [
+      "Vérifier l’étendue et la lisibilité.",
+      "Choisir Share > Export Layout.",
+      "Choisir PDF et les options de qualité.",
+      "Exporter puis ouvrir le fichier final pour contrôle."
+    ],
+    "tip": "Faire une vérification du PDF exporté, pas seulement de l’aperçu.",
+    "verify": "Titre, grille, légende et traits restent nets.",
+    "common": "Attention aux polices, transparences et images lourdes.",
+    "keywords": [
+      "pdf",
+      "export",
+      "résolution",
+      "impression"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-005",
+    "category": "Cartographie & layout",
+    "title": "Créer et utiliser des signets",
+    "tool": "Bookmarks",
+    "path": "Map > Bookmarks",
+    "summary": "Revenir rapidement aux zones géographiques utilisées.",
+    "steps": [
+      "Positionner l’affichage.",
+      "Créer un nouveau Bookmark.",
+      "Nommer le lieu ou le périmètre.",
+      "Utiliser les signets pour retrouver la vue."
+    ],
+    "tip": "Pratique pour basculer entre plusieurs permis.",
+    "verify": "Le signet replace la vue à l’emprise voulue.",
+    "common": "Les signets mémorisent une vue, pas une nouvelle copie des données.",
+    "keywords": [
+      "signet",
+      "bookmark",
+      "extent"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-006",
+    "category": "Cartographie & layout",
+    "title": "Ajouter une légende et une échelle",
+    "tool": "Legend / Scale Bar",
+    "path": "Insert > Map Surrounds",
+    "summary": "Documenter une carte pour une lecture autonome.",
+    "steps": [
+      "Insérer une légende liée au Map Frame.",
+      "Retirer les couches qui ne doivent pas apparaître.",
+      "Ajouter une échelle graphique et vérifier les unités.",
+      "Contrôler le résultat sur le format final."
+    ],
+    "tip": "Alléger la légende plutôt que montrer tous les éléments techniques.",
+    "verify": "La légende correspond aux symboles réellement affichés.",
+    "common": "Échelle et légende dépendent du Map Frame associé.",
+    "keywords": [
+      "légende",
+      "scale",
+      "échelle",
+      "carte"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "LBL-001",
+    "category": "Étiquettes & symbologie",
+    "title": "Afficher les coordonnées X et Y comme étiquettes",
+    "tool": "Label Expression",
+    "path": "Labeling > Expression",
+    "summary": "Construire une étiquette contenant les coordonnées ou champs souhaités.",
+    "steps": [
+      "Vérifier les champs de coordonnées disponibles.",
+      "Activer Label sur la couche.",
+      "Créer une expression ArcGIS Arcade ou sélectionner les champs.",
+      "Contrôler format, décimales et placement."
+    ],
+    "tip": "Les champs X/Y stockés peuvent différer des coordonnées actuelles de la géométrie.",
+    "verify": "Une étiquette correspond à l’entité test.",
+    "common": "Ne pas confondre longitude/latitude et coordonnées projetées.",
+    "keywords": [
+      "label",
+      "xy",
+      "arcade",
+      "expression"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "LBL-002",
+    "category": "Étiquettes & symbologie",
+    "title": "Étiqueter seulement les points du périmètre",
+    "tool": "Select By Location + Export Features",
+    "path": "Map > Select By Location",
+    "summary": "Éviter les étiquettes de points situés hors de la zone souhaitée.",
+    "steps": [
+      "Sélectionner les points appartenant au périmètre.",
+      "Exporter la sélection dans une couche dédiée.",
+      "Désactiver les labels de la couche d’origine.",
+      "Activer les labels sur la couche extraite."
+    ],
+    "tip": "Méthode robuste et simple si une couche dérivée est acceptable.",
+    "verify": "Seuls les points retenus portent une étiquette.",
+    "common": "Le choix Within/Intersect modifie les points sur la bordure.",
+    "keywords": [
+      "label",
+      "polygone",
+      "points",
+      "within"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "LBL-003",
+    "category": "Étiquettes & symbologie",
+    "title": "Colorer les entités par catégories",
+    "tool": "Unique Values Symbology",
+    "path": "Symbology > Unique Values",
+    "summary": "Différencier les permis ou types d’occupation par couleurs.",
+    "steps": [
+      "Ouvrir Symbology.",
+      "Choisir Unique Values.",
+      "Définir le champ de classification.",
+      "Ajuster les couleurs et la légende."
+    ],
+    "tip": "Garder des couleurs cohérentes d’une carte à l’autre.",
+    "verify": "Chaque valeur a le symbole attendu.",
+    "common": "Prévoir un symbole pour les valeurs nulles ou autres.",
+    "keywords": [
+      "symbologie",
+      "couleur",
+      "permis",
+      "catégorie"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-001",
+    "category": "SIG minier Madagascar",
+    "title": "Sélectionner les carrés d’un périmètre minier",
+    "tool": "Select By Location",
+    "path": "Map > Select By Location",
+    "summary": "Isoler les carrés miniers d’une emprise de travail.",
+    "steps": [
+      "Vérifier la couche officielle des carrés et son référentiel.",
+      "Ajouter ou créer le périmètre de sélection.",
+      "Choisir la relation spatiale conforme au besoin (intersecte, entièrement inclus, etc.).",
+      "Contrôler identifiants et nombre de carrés avant export."
+    ],
+    "tip": "Ne pas assimiler une sélection spatiale à une validation du statut juridique d’un permis.",
+    "verify": "La liste de carrés correspond aux données de référence utilisées.",
+    "common": "Les intersections marginales peuvent inclure des carrés non entièrement dans la zone.",
+    "keywords": [
+      "bcmm",
+      "carrés",
+      "minier",
+      "pr",
+      "pe",
+      "aerp"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-002",
+    "category": "SIG minier Madagascar",
+    "title": "Contrôler la superficie d’un permis",
+    "tool": "Calculate Geometry Attributes",
+    "path": "Analysis > Tools > Calculate Geometry Attributes",
+    "summary": "Vérifier une superficie calculée sans la confondre avec une superficie administrative.",
+    "steps": [
+      "Vérifier géométrie et référentiel.",
+      "Calculer une surface avec unités explicites.",
+      "Comparer au décompte de carrés et aux données officielles.",
+      "Documenter les écarts."
+    ],
+    "tip": "La valeur GIS peut différer de la valeur officielle selon les règles de comptabilisation.",
+    "verify": "La méthode et l’unité de superficie sont tracées.",
+    "common": "Ne pas arrondir avant les contrôles.",
+    "keywords": [
+      "superficie",
+      "hectare",
+      "minier",
+      "carre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-003",
+    "category": "SIG minier Madagascar",
+    "title": "Croiser un périmètre et des zones sensibles",
+    "tool": "Intersect / Clip",
+    "path": "Analysis > Tools > Intersect",
+    "summary": "Identifier les recouvrements géographiques à examiner.",
+    "steps": [
+      "Importer les périmètres et les zones sensibles avec sources connues.",
+      "Vérifier référentiels, dates et emprises.",
+      "Utiliser Intersect pour les recouvrements exacts ou Clip selon l’objectif.",
+      "Contrôler le résultat et documenter les sources."
+    ],
+    "tip": "Un recouvrement SIG ne suffit pas à établir une contrainte juridique : vérifier le texte et le statut applicable.",
+    "verify": "Les zones communes sont visibles et documentées.",
+    "common": "Attention aux données anciennes et aux couches généralisées.",
+    "keywords": [
+      "environnement",
+      "recouvrement",
+      "ptpf",
+      "prse",
+      "pee"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-004",
+    "category": "SIG minier Madagascar",
+    "title": "Importer les observations terrain de Tety",
+    "tool": "CSV / GeoJSON",
+    "path": "Map > Add Data",
+    "summary": "Préparer des points et traces de reconnaissance pour la cartographie.",
+    "steps": [
+      "Exporter les observations depuis Tety en CSV ou GeoJSON.",
+      "Vérifier les noms, coordonnées, dates et identifiants de permis.",
+      "Importer dans ArcGIS Pro et attribuer le bon référentiel source.",
+      "Contrôler les positions et enregistrer la classe d’entités."
+    ],
+    "tip": "Conserver un identifiant stable pour relier photos et notes au relevé.",
+    "verify": "Les coordonnées et identifiants sont cohérents avec l’export terrain.",
+    "common": "Ne pas transformer arbitrairement les coordonnées source.",
+    "keywords": [
+      "tety",
+      "terrain",
+      "gps",
+      "photo",
+      "geojson"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-005",
+    "category": "SIG minier Madagascar",
+    "title": "Préparer une carte pour un dossier PR / PTPF",
+    "tool": "Layout + cartographic checklist",
+    "path": "Insert > New Layout",
+    "summary": "Vérifier les informations cartographiques avant intégration au dossier.",
+    "steps": [
+      "Choisir un fond et des sources documentées.",
+      "Afficher le périmètre et ses références.",
+      "Ajouter titre, légende, échelle, nord et grille adaptés.",
+      "Exporter et contrôler le PDF en taille réelle."
+    ],
+    "tip": "Les exigences documentaires réelles doivent être vérifiées pour chaque procédure administrative.",
+    "verify": "Une personne extérieure peut identifier lieu, objet, date et source.",
+    "common": "Une carte esthétique peut être inexacte spatialement : vérifier le référentiel.",
+    "keywords": [
+      "pr",
+      "ptpf",
+      "plan",
+      "cadastre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-001",
+    "category": "Dépannage",
+    "title": "Ma couche ne s’affiche pas",
+    "tool": "Zoom To Layer / Layer Properties",
+    "path": "Contents > Layer",
+    "summary": "Diagnostiquer une couche invisible malgré son chargement.",
+    "steps": [
+      "Vérifier la case de visibilité.",
+      "Utiliser Zoom To Layer.",
+      "Vérifier filtres et plage d’échelle.",
+      "Inspecter l’emprise et le système de coordonnées."
+    ],
+    "tip": "Vérifier aussi les groupes de couches parents masqués.",
+    "verify": "Une cause identifiable explique l’absence d’affichage.",
+    "common": "Une couche à une coordonnée aberrante peut être très éloignée.",
+    "keywords": [
+      "invisible",
+      "couche",
+      "afficher",
+      "projection"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-002",
+    "category": "Dépannage",
+    "title": "Mes points sont décalés de plusieurs kilomètres",
+    "tool": "Coordinate System / Project",
+    "path": "Map Properties > Coordinate Systems",
+    "summary": "Identifier un problème d’interprétation ou de transformation des coordonnées.",
+    "steps": [
+      "Vérifier la table X/Y et ses unités.",
+      "Vérifier la définition du système SOURCE.",
+      "Contrôler la transformation de datum et l’ordre des coordonnées.",
+      "Comparer à plusieurs points connus."
+    ],
+    "tip": "Ne pas corriger un décalage à l’œil en déplaçant les données avant diagnostic.",
+    "verify": "L’écart après traitement est compatible avec la précision attendue.",
+    "common": "Attention aux variantes de Laborde et aux valeurs X/Y inversées.",
+    "keywords": [
+      "decalage",
+      "position",
+      "coordonnées",
+      "laborde"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-003",
+    "category": "Dépannage",
+    "title": "Je ne vois plus les étiquettes",
+    "tool": "Labeling / Visibility Range",
+    "path": "Labeling > Label",
+    "summary": "Rétablir des étiquettes masquées ou non calculées.",
+    "steps": [
+      "Activer l’étiquetage.",
+      "Vérifier le champ ou l’expression.",
+      "Vérifier les classes, requêtes et plages d’échelle.",
+      "Contrôler les conflits de placement."
+    ],
+    "tip": "Faire le test avec une seule couche et une étiquette simple.",
+    "verify": "Un objet test porte son étiquette.",
+    "common": "Un label peut être supprimé par le moteur de placement.",
+    "keywords": [
+      "label",
+      "absent",
+      "etiquettes"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-004",
+    "category": "Dépannage",
+    "title": "Mon export PDF est vide ou incomplet",
+    "tool": "Export Layout",
+    "path": "Share > Export Layout",
+    "summary": "Isoler un problème d’étendue, visibilité ou qualité d’export.",
+    "steps": [
+      "Vérifier le Map Frame et ses couches.",
+      "Exporter avec des paramètres simples.",
+      "Ouvrir le fichier exporté hors ArcGIS.",
+      "Réintroduire progressivement les effets ou couches lourdes."
+    ],
+    "tip": "Garder une copie du Layout avant expérimentation.",
+    "verify": "Le PDF final affiche les contenus attendus.",
+    "common": "Comparer aperçu et fichier réellement généré.",
+    "keywords": [
+      "pdf",
+      "vide",
+      "export",
+      "layout"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "PROD-001",
+    "category": "Raccourcis & productivité",
+    "title": "Enregistrer son projet fréquemment",
+    "tool": "Save Project",
+    "path": "Quick Access Toolbar > Save",
+    "summary": "Réduire le risque de perdre des réglages cartographiques.",
+    "steps": [
+      "Utiliser la commande Save Project pendant le travail.",
+      "Vérifier que le projet possède un emplacement stable.",
+      "Pour une variante majeure, enregistrer une copie.",
+      "Documenter les changements importants."
+    ],
+    "tip": "Le fichier .aprx ne remplace pas la sauvegarde des données externes.",
+    "verify": "La date de sauvegarde du projet est actualisée.",
+    "common": "Un projet peut référencer des données situées ailleurs.",
+    "keywords": [
+      "save",
+      "enregistrer",
+      "aprx",
+      "productivité"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "PROD-002",
+    "category": "Raccourcis & productivité",
+    "title": "Créer un modèle reproductible",
+    "tool": "ModelBuilder",
+    "path": "Analysis > ModelBuilder",
+    "summary": "Automatiser une suite de géotraitements répétitifs.",
+    "steps": [
+      "Identifier les entrées et sorties de chaque outil.",
+      "Ajouter les outils au modèle.",
+      "Connecter les paramètres.",
+      "Exécuter sur un petit jeu de données puis valider les sorties."
+    ],
+    "tip": "Conserver un journal des traitements et ne pas écraser les données source.",
+    "verify": "Le modèle produit le même résultat sur un jeu test contrôlé.",
+    "common": "Certains outils exigent des licences ou extensions spécifiques.",
+    "keywords": [
+      "workflow",
+      "automatisation",
+      "modèle"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  }
+];
+const defaults = { favorites: [], history: [], notes: [], checklist: {}, preferences: { theme: 'auto', compact: false } };
+const DB_NAME = 'arcguide-personal';
+const DB_VERSION = 1;
+const STORE = 'preferences';
+let dbPromise;
+function openDB() {
+    if (!('indexedDB' in window))
+        return Promise.reject(new Error('IndexedDB indisponible'));
+    if (dbPromise)
+        return dbPromise;
+    dbPromise = new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, DB_VERSION);
+        req.onupgradeneeded = () => { const db = req.result; if (!db.objectStoreNames.contains(STORE))
+            db.createObjectStore(STORE); };
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    });
+    return dbPromise;
+}
+function readKV(key) {
+    return openDB().then(db => new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE, 'readonly');
+        const req = tx.objectStore(STORE).get(key);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+    }));
+}
+function writeKV(key, value) {
+    return openDB().then(db => new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE, 'readwrite');
+        tx.objectStore(STORE).put(value, key);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+    }));
+}
+function listString(x) { return Array.isArray(x) ? Array.from(new Set(x.filter(v => typeof v === 'string').slice(0, 5000))) : []; }
+function validateBackup(x) {
+    if (!x || typeof x !== 'object')
+        throw Error('Fichier de sauvegarde invalide.');
+    const o = x;
+    if (o.format !== 'arcguide-backup' || o.version !== 1 || !o.data || typeof o.data !== 'object')
+        throw Error('Format ou version de sauvegarde non pris en charge.');
+    const d = o.data;
+    if (!Array.isArray(d.notes) || d.notes.length > 3000)
+        throw Error('Liste de notes invalide.');
+    const notes = d.notes.map((value, i) => {
+        if (!value || typeof value !== 'object')
+            throw Error(`Note ${i + 1} invalide.`);
+        const n = value;
+        if (typeof n.id !== 'string' || typeof n.title !== 'string' || typeof n.body !== 'string' || typeof n.tags !== 'string' || n.title.length > 250 || n.body.length > 100000)
+            throw Error(`Note ${i + 1} invalide.`);
+        return { id: n.id.slice(0, 150), title: n.title, body: n.body, tags: n.tags.slice(0, 1500), updated: typeof n.updated === 'number' && Number.isFinite(n.updated) ? n.updated : 0 };
+    });
+    const c = {};
+    if (d.checklist && typeof d.checklist === 'object' && !Array.isArray(d.checklist)) {
+        for (const [k, v] of Object.entries(d.checklist)) {
+            if (k.length < 150 && typeof v === 'boolean')
+                c[k] = v;
+        }
+    }
+    const p = d.preferences && typeof d.preferences === 'object' ? d.preferences : {};
+    const theme = p.theme === 'dark' || p.theme === 'light' ? p.theme : 'auto';
+    return { favorites: listString(d.favorites), history: listString(d.history).slice(0, 40), notes, checklist: c, preferences: { theme, compact: !!p.compact } };
+}
+async function loadData() {
+    try {
+        const d = await readKV('user-data');
+        if (!d)
+            return structuredClone(defaults);
+        const r = validateBackup({ format: 'arcguide-backup', version: 1, data: d });
+        return r;
+    }
+    catch (e) {
+        console.error('ARCGUIDE storage load failed', e);
+        return structuredClone(defaults);
+    }
+}
+async function saveData(data) { await writeKV('user-data', data); }
+function makeBackup(data) { return { format: 'arcguide-backup', version: 1, createdAt: new Date().toISOString(), data: structuredClone(data) }; }
+
+function normalize(s) { return s.toLocaleLowerCase('fr').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim(); }
+const aliases = {
+    'layout': ['mise en page', 'geler', 'freeze', 'map frame', 'carte indépendante'],
+    'points': ['point', 'xy', 'coordonnees', 'gps'],
+    'polygone': ['perimetre', 'zone', 'surface'],
+    'etiquettes': ['labels', 'label', 'etiquetage'],
+    'projeter': ['reprojection', 'project', 'transformation'],
+    'coupe': ['decoupe', 'clip'],
+    'permis': ['pr', 'pe', 'aerp', 'minier', 'carres'],
+    'table': ['tableau', 'excel', 'csv', 'attributs']
+};
+function getWords(query) { const a = normalize(query).split(' ').filter(Boolean); const terms = new Set(a); for (const [key, items] of Object.entries(aliases)) {
+    const k = normalize(key);
+    if (a.includes(k) || items.some(i => normalize(i) === normalize(query))) {
+        items.forEach(i => normalize(i).split(' ').forEach(w => terms.add(w)));
+        terms.add(k);
+    }
+} return Array.from(terms); }
+function scoreGuide(g, q) {
+    const query = normalize(q);
+    if (!query)
+        return 1;
+    const title = normalize(g.title), tool = normalize(g.tool), cat = normalize(g.category), keywords = normalize(g.keywords.join(' ')), body = normalize(`${g.summary} ${g.path} ${g.steps.join(' ')} ${g.tip} ${g.common}`);
+    let score = 0;
+    if (title.includes(query))
+        score += 40;
+    if (tool.includes(query))
+        score += 36;
+    if (keywords.includes(query))
+        score += 23;
+    if (cat.includes(query))
+        score += 15;
+    const words = getWords(q);
+    let hits = 0;
+    for (const w of words) {
+        if (w.length < 2)
+            continue;
+        if (title.includes(w)) {
+            score += 10;
+            hits++;
+        }
+        else if (tool.includes(w)) {
+            score += 9;
+            hits++;
+        }
+        else if (keywords.includes(w)) {
+            score += 7;
+            hits++;
+        }
+        else if (body.includes(w)) {
+            score += 3;
+            hits++;
+        }
+    }
+    if (hits === 0)
+        return 0;
+    if (hits >= Math.min(2, words.length))
+        score += 10;
+    return score;
+}
+function findGuides(guides, q, category = 'Tous') { return guides.filter(g => category === 'Tous' || g.category === category).map(g => ({ g, score: scoreGuide(g, q) })).filter(x => x.score > 0).sort((a, b) => b.score - a.score || a.g.title.localeCompare(b.g.title, 'fr')).map(x => x.g); }
+
+
+
+const app = document.querySelector('#app');
+let guides = [];
+let data = structuredClone(defaults);
+let view = 'home';
+let q = '';
+let category = 'Tous';
+let currentGuide = null;
+let editNote = null;
+let diag = 'invisible';
+let diagMode = 'unknown';
+let toastTimer;
+let beforeInstall = null;
+const checklistItems = ['Titre et objet de la carte', 'Périmètre et référence du permis', 'Système de coordonnées et unités', 'Échelle et échelle graphique', 'Légende vérifiée', 'Orientation / flèche nord pertinente', 'Grille et étiquettes lisibles', 'Source et date des données', 'État et limites des zones sensibles', 'Contrôle de l’emprise sur fond fiable', 'Export PDF vérifié à taille réelle'];
+const nav = [{ id: 'home', label: 'Accueil', icon: '⌂' }, { id: 'guides', label: 'Guides', icon: '▤' }, { id: 'diagnostic', label: 'Diagnostic', icon: '✚' }, { id: 'mining', label: 'SIG minier', icon: '◈' }, { id: 'favorites', label: 'Favoris', icon: '☆' }, { id: 'notes', label: 'Mes notes', icon: '✎' }, { id: 'settings', label: 'Paramètres', icon: '⚙' }];
+function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+function download(text, name, type = 'application/json') { const blob = new Blob([text], { type }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1200); }
+function notify(s) { let n = document.querySelector('#toast'); if (!n) {
+    n = document.createElement('div');
+    n.id = 'toast';
+    n.setAttribute('role', 'status');
+    document.body.appendChild(n);
+} n.textContent = s; n.classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => n?.classList.remove('visible'), 3300); }
+function applyTheme() { document.documentElement.dataset.theme = data.preferences.theme; document.documentElement.dataset.compact = data.preferences.compact ? 'yes' : 'no'; }
+async function persist() { try {
+    await saveData(data);
+}
+catch (e) {
+    notify('Stockage indisponible : exporter tes données dès que possible.');
+    console.error(e);
+} }
+function openGuide(id) { if (!guides.some(g => g.id === id))
+    return; currentGuide = id; data.history = [id, ...data.history.filter(x => x !== id)].slice(0, 40); void persist(); render(); }
+function active(g) { return data.favorites.includes(g.id); }
+function cards(gs, empty = 'Aucune fiche correspondante.') {
+    if (!gs.length)
+        return `<div class="empty"><div class="empty-icon">⌕</div><h3>Aucun résultat</h3><p>${esc(empty)}</p><button class="btn small" data-action="clear-search">Effacer les filtres</button></div>`;
+    return `<div class="cards">${gs.map(g => `<article class="guide-card" data-open="${esc(g.id)}" tabindex="0" role="button" aria-label="Voir ${esc(g.title)}"><div class="card-top"><span class="cat-label">${esc(g.category)}</span><button title="Favori" aria-label="${active(g) ? 'Retirer des favoris' : 'Ajouter aux favoris'}" class="star ${active(g) ? 'active' : ''}" data-action="favorite" data-id="${esc(g.id)}">${active(g) ? '★' : '☆'}</button></div><h3>${esc(g.title)}</h3><p>${esc(g.summary)}</p><div class="card-footer"><span>${esc(g.tool)}</span><span class="arrow">→</span></div></article>`).join('')}</div>`;
+}
+function pageHome() {
+    const recent = data.history.map(id => guides.find(g => g.id === id)).filter((x) => !!x).slice(0, 3);
+    const featured = guides.filter(g => ['SEL-001', 'MAP-002', 'CRS-004', 'MINE-001'].includes(g.id));
+    return `<section class="hero"><div class="hero-overline"><span class="dot"></span> LE COMPAGNON D'ARCGIS PRO</div><h1>Une réponse claire.<br><span>Une carte plus juste.</span></h1><p>Retrouve rapidement une commande, résous un problème SIG et garde tes astuces essentielles, même sans connexion.</p><div class="searchbox hero-search"><span class="search-icon">⌕</span><input id="search" type="search" aria-label="Rechercher une procédure" placeholder="Ex. sélectionner des carrés, geler mon layout…" value="${esc(q)}" autocomplete="off"/><kbd>/</kbd></div><div class="hero-bottom"><span><span class="status-dot"></span> ${guides.length} fiches disponibles localement</span><span>ArcGIS Pro · SIG minier Madagascar</span></div></section>
+ <section class="section"><div class="section-head"><div><div class="eyebrow">EXPLORER</div><h2>Que veux-tu faire ?</h2></div><button class="text-button" data-view="guides">Toutes les fiches →</button></div><div class="quick-grid">${[['◉', 'Sélections', 'Sélection & couches'], ['▥', 'Mise en page', 'Cartographie & layout'], ['⌖', 'Coordonnées', 'Coordonnées & projections'], ['◈', 'SIG minier', 'SIG minier Madagascar'], ['◫', 'Données', 'Données & tables'], ['✚', 'Dépannage', 'Dépannage']].map(x => `<button class="quick" data-action="category" data-cat="${esc(x[2])}"><span class="quick-icon">${x[0]}</span><span>${esc(x[1])}</span><span class="quick-arrow">↗</span></button>`).join('')}</div></section>
+ ${recent.length ? `<section class="section"><div class="section-head"><div><div class="eyebrow">REPRENDRE</div><h2>Consulté récemment</h2></div></div>${cards(recent)}</section>` : ''}
+ <section class="section"><div class="section-head"><div><div class="eyebrow">LA SÉLECTION</div><h2>À portée de clic</h2></div></div>${cards(featured)}</section>`;
+}
+function pageGuides() { const cats = Array.from(new Set(guides.map(g => g.category))); const result = findGuides(guides, q, category); return `<section class="page-heading"><div class="eyebrow">LA BIBLIOTHÈQUE</div><h1>Guides & procédures</h1><p>Rechercher par outil, objectif ou difficulté rencontrée.</p></section><div class="searchbox bar-search"><span class="search-icon">⌕</span><input id="search" type="search" placeholder="Commande, mot-clé, difficulté…" value="${esc(q)}" aria-label="Rechercher une procédure" autocomplete="off"/><kbd>/</kbd></div><div class="chips" aria-label="Filtres par catégorie">${['Tous', ...cats].map(c => `<button class="chip ${category === c ? 'selected' : ''}" data-action="filter" data-cat="${esc(c)}">${esc(c)}</button>`).join('')}</div><div class="section-head"><h2 class="subheading">${result.length} résultat${result.length !== 1 ? 's' : ''}</h2><span class="small-muted">Contenu initial · révision continue</span></div>${cards(result, 'Essaie une autre formulation ou une catégorie.')}`; }
+function pageFavorites() { const f = data.favorites.map(id => guides.find(g => g.id === id)).filter((x) => !!x); return `<section class="page-heading"><div class="eyebrow">BIBLIOTHÈQUE PERSONNELLE</div><h1>Mes favoris</h1><p>Tes commandes essentielles, disponibles sans réseau.</p></section>${f.length ? cards(f) : `<div class="empty"><div class="empty-icon">☆</div><h3>Pas encore de favoris</h3><p>Utilise l’étoile sur une fiche pour la retrouver ici.</p><button class="btn" data-view="guides">Explorer les guides</button></div>`}`; }
+function pageNotes() { return `<section class="page-heading flex-heading"><div><div class="eyebrow">TON SAVOIR-FAIRE</div><h1>Mes notes</h1><p>Consigne tes astuces personnelles. Elles restent sur cet appareil.</p></div><button class="btn primary" data-action="new-note">＋ Nouvelle note</button></section>${data.notes.length ? `<div class="notes-list">${[...data.notes].sort((a, b) => b.updated - a.updated).map(n => `<article class="note-card"><div><div class="note-date">${new Date(n.updated).toLocaleDateString('fr-FR')}</div><h3>${esc(n.title)}</h3><p>${esc(n.body.slice(0, 160))}${n.body.length > 160 ? '…' : ''}</p>${n.tags ? `<span class="note-tags">${esc(n.tags)}</span>` : ''}</div><div class="note-actions"><button class="btn small" data-action="edit-note" data-id="${esc(n.id)}">Modifier</button><button class="btn small subtle" data-action="delete-note" data-id="${esc(n.id)}">Supprimer</button></div></article>`).join('')}</div>` : `<div class="empty"><div class="empty-icon">✎</div><h3>Ton carnet SIG commence ici</h3><p>Ajoute une astuce, une procédure personnalisée ou une observation.</p><button class="btn primary" data-action="new-note">Créer ma première note</button></div>`}`; }
+const diagnoses = {
+    invisible: { title: 'Une couche ne s’affiche pas', question: 'Que constates-tu après Zoom To Layer ?', choices: [{ id: 'bounds', label: 'Je vois une emprise mais pas les objets', answer: 'Vérifie la case de visibilité, le filtre de définition, l’échelle minimale/maximale et la symbologie. Inspecte aussi les groupes parents.', guide: 'FIX-001' }, { id: 'far', label: 'La carte se déplace très loin', answer: 'Les coordonnées ou le référentiel source peuvent être erronés. Contrôle unités, X/Y, datum et points connus avant toute modification.', guide: 'FIX-002' }, { id: 'unknown', label: 'Je ne sais pas', answer: 'Commence par Zoom To Layer puis vérifie la visibilité, la table attributaire et le système de coordonnées.', guide: 'FIX-001' }] },
+    shifted: { title: 'Mes points sont décalés', question: 'Quel type de coordonnées possède la source ?', choices: [{ id: 'laborde', label: 'Laborde / coordonnées projetées', answer: 'Contrôle la définition Laborde exacte auprès de la source. Define Projection ne change pas les X/Y ; Project exige une transformation adaptée si les datums diffèrent.', guide: 'CRS-004' }, { id: 'gps', label: 'GPS : longitude / latitude', answer: 'Contrôle longitude = X, latitude = Y, signe des coordonnées et WGS84 géographique. Vérifie un point témoin.', guide: 'CRS-003' }, { id: 'unknown', label: 'Inconnu', answer: 'Ne choisis aucun EPSG par hasard : identifie la provenance, les unités et des points de contrôle avant projection.', guide: 'CRS-001' }] },
+    labels: { title: 'Mes étiquettes n’apparaissent plus', question: 'L’étiquetage est-il activé ?', choices: [{ id: 'on', label: 'Oui', answer: 'Vérifie la classe de labels, l’expression, les plages d’échelle, la priorité et les collisions de placement.', guide: 'FIX-003' }, { id: 'off', label: 'Non / incertain', answer: 'Active Label sur la couche et essaie un champ texte simple pour isoler le problème.', guide: 'FIX-003' }] },
+    layout: { title: 'Deux layouts changent ensemble', question: 'Les cadres cartographiques utilisent-ils la même carte ?', choices: [{ id: 'yes', label: 'Oui', answer: 'Duplique la carte dans Catalog et associe la copie au deuxième Map Frame. Chaque cadre garde sa propre étendue, mais les couches restent communes si la carte est identique.', guide: 'MAP-002' }, { id: 'no', label: 'Non / je ne sais pas', answer: 'Inspecte la propriété Map de chaque Map Frame. Vérifie que les deux cadres pointent réellement vers des cartes différentes.', guide: 'MAP-002' }] },
+    export: { title: 'Mon PDF est vide ou incorrect', question: 'Quel symptôme décrit le mieux l’export ?', choices: [{ id: 'empty', label: 'Page blanche ou contenu absent', answer: 'Contrôle l’étendue du Map Frame, les couches visibles et les sources de données, puis teste un export simple.', guide: 'FIX-004' }, { id: 'quality', label: 'Police, symbologie ou traits dégradés', answer: 'Vérifie la résolution, les transparences et les polices. Compare le PDF à l’aperçu Layout sur un lecteur indépendant.', guide: 'MAP-004' }] }
+};
+function pageDiagnostic() { const d = diagnoses[diag]; const choice = d.choices.find(x => x.id === diagMode); return `<section class="page-heading"><div class="eyebrow">DIAGNOSTIC GUIDÉ</div><h1>Débloquer une manipulation</h1><p>Identifie le symptôme, puis avance par vérifications concrètes.</p></section><div class="diagnostic-layout"><div class="diagnostic-list"><div class="eyebrow">01 — TON PROBLÈME</div>${Object.entries(diagnoses).map(([id, x]) => `<button class="issue ${diag === id ? 'active' : ''}" data-action="diag" data-id="${id}"><span>${esc(x.title)}</span><span>›</span></button>`).join('')}</div><div class="diagnostic-main"><div class="eyebrow">02 — PRÉCISER</div><h2>${esc(d.question)}</h2><div class="choice-list">${d.choices.map(x => `<button class="choice ${diagMode === x.id ? 'active' : ''}" data-action="diag-choice" data-id="${x.id}"><span class="choice-circle">${diagMode === x.id ? '●' : ''}</span>${esc(x.label)}</button>`).join('')}</div>${choice ? `<div class="diagnosis-answer"><div class="eyebrow">03 — PISTE DE SOLUTION</div><p>${esc(choice.answer)}</p><button class="btn primary" data-open="${choice.guide}">Ouvrir le guide correspondant →</button></div>` : `<div class="hint">Choisis une réponse pour afficher les premières vérifications adaptées.</div>`}</div></div>`; }
+function pageMining() { const mine = guides.filter(g => g.category === 'SIG minier Madagascar'); const done = checklistItems.filter((x, i) => data.checklist[`mine-${i}`]).length; return `<section class="page-heading"><div class="eyebrow">MADAGASCAR · CARTOGRAPHIE MINIÈRE</div><h1>SIG minier</h1><p>Périmètres PR, PE, AERP, référentiel Laborde, données terrain et cartes techniques.</p></section><div class="mining-banner"><div><div class="eyebrow">PARCOURS SPÉCIALISÉS</div><h2>Du périmètre au dossier cartographique</h2><p>Procédures techniques et points de vigilance. Le contrôle SIG ne remplace pas une vérification auprès des autorités ou des données officielles.</p></div><span class="mining-symbol">◈</span></div><section class="section"><div class="section-head"><h2>Procédures minières</h2></div>${cards(mine)}</section><section class="section"><div class="section-head"><div><h2>Contrôle qualité d’une carte</h2><p class="small-muted">Checklist personnelle enregistrée hors ligne</p></div><span class="count-pill">${done}/${checklistItems.length}</span></div><div class="progress"><div style="width:${Math.round(done / checklistItems.length * 100)}%"></div></div><div class="checklist">${checklistItems.map((s, i) => `<label class="check-item"><input type="checkbox" data-check="mine-${i}" ${data.checklist[`mine-${i}`] ? 'checked' : ''}/><span>${esc(s)}</span></label>`).join('')}</div><button class="btn small subtle" data-action="clear-checklist">Réinitialiser cette checklist</button></section>`; }
+function pageSettings() { return `<section class="page-heading"><div class="eyebrow">CONFIGURATION</div><h1>Paramètres</h1><p>Préférences, données personnelles et installation hors ligne.</p></section><div class="settings-grid"><section class="setting-panel"><h2>Apparence</h2><label for="theme" class="formlabel">Thème</label><select id="theme"><option value="auto" ${data.preferences.theme === 'auto' ? 'selected' : ''}>Système</option><option value="light" ${data.preferences.theme === 'light' ? 'selected' : ''}>Clair</option><option value="dark" ${data.preferences.theme === 'dark' ? 'selected' : ''}>Sombre</option></select><label class="check-item"><input id="compact" type="checkbox" ${data.preferences.compact ? 'checked' : ''}/>Affichage compact des fiches</label></section><section class="setting-panel"><h2>Mes données</h2><p>Les notes, favoris et historiques sont conservés uniquement dans le navigateur utilisé. Exporter régulièrement une copie.</p><div class="action-stack"><button class="btn primary" data-action="export-backup">↓ Exporter la sauvegarde JSON</button><button class="btn" data-action="import-backup">↑ Restaurer une sauvegarde JSON</button><button class="btn subtle" data-action="clear-history">Effacer l’historique</button></div><input type="file" id="backup-file" accept=".json,application/json" class="visually-hidden"/></section><section class="setting-panel"><h2>Hors ligne</h2><p>Après une première ouverture complète, les fiches et l’interface sont mises en cache par le navigateur. Les liens vers Esri restent externes.</p><div class="action-stack"><button class="btn" data-action="install" id="install-btn">Installer l’application</button><button class="btn subtle" data-action="offline-test">Vérifier le cache hors ligne</button></div><p class="small-muted" id="offline-state">Connexion du navigateur : ${navigator.onLine ? 'en ligne' : 'hors ligne'}</p></section><section class="setting-panel"><h2>À propos</h2><p><strong>ARCGUIDE 1.0 — préversion.</strong> ${guides.length} fiches, 9 rubriques. Fiches en cours de vérification technique individuelle. Interface indépendante d'ArcGIS Pro, sans compte obligatoire ni service externe.</p><p class="small-muted">Les actions de diagnostic et les procédures sont des aides techniques, pas une validation réglementaire.</p></section></div>`; }
+function detail() { const g = guides.find(x => x.id === currentGuide); if (!g)
+    return ''; return `<div class="modal-backdrop" data-action="close-modal"><div class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title" onclick="event.stopPropagation()"><div class="detail-head"><div><div class="eyebrow">${esc(g.category)} · ${esc(g.id)}</div><h2 id="detail-title">${esc(g.title)}</h2></div><button class="iconbtn" title="Fermer" aria-label="Fermer" data-action="close-modal">×</button></div><div class="detail-scroll"><div class="detail-meta"><span class="pill">${esc(g.tool)}</span><span class="pill neutral">${esc(g.level)}</span><span class="pill caution">${esc(g.review)}</span></div><p class="lead">${esc(g.summary)}</p><div class="detail-tools"><button class="btn small ${active(g) ? 'primary' : ''}" data-action="favorite" data-id="${g.id}">${active(g) ? '★ En favori' : '☆ Favori'}</button><button class="btn small" data-action="copy-guide" data-id="${g.id}">Copier la procédure</button><button class="btn small" data-action="print">Imprimer</button></div><div class="path-label">CHEMIN D’ACCÈS</div><div class="toolpath"><code>${esc(g.path)}</code><button class="text-button" data-action="copy-path" data-id="${g.id}" aria-label="Copier le chemin">Copier</button></div><div class="detail-section"><h3>Procédure express</h3><ol class="steps">${g.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol></div><div class="tip-box"><strong>Astuce</strong><p>${esc(g.tip)}</p></div><details class="expander"><summary>Vérification du résultat</summary><p>${esc(g.verify)}</p></details><details class="expander"><summary>Erreurs fréquentes</summary><p>${esc(g.common)}</p></details>${g.source ? `<div class="detail-section"><h3>Documentation de référence</h3><a class="reference-link" href="${esc(g.source)}" target="_blank" rel="noopener noreferrer">Consulter la documentation Esri ↗</a><p class="small-muted">Lien externe nécessitant Internet ; validation individuelle de la fiche toujours à finaliser.</p></div>` : ''}<div class="detail-bottom-note">ARCGUIDE · Fiche initiale à vérifier sur ta version d'ArcGIS Pro.</div></div></div></div>`; }
+function noteModal() { if (editNote === null)
+    return ''; const n = data.notes.find(x => x.id === editNote); return `<div class="modal-backdrop" data-action="close-note"><form class="note-modal" id="note-form" onclick="event.stopPropagation()"><div class="detail-head"><div><div class="eyebrow">CARNET PERSONNEL</div><h2>${n ? 'Modifier une note' : 'Nouvelle note'}</h2></div><button type="button" class="iconbtn" data-action="close-note" aria-label="Fermer">×</button></div><label class="formlabel" for="note-title">Titre de la note</label><input id="note-title" name="title" required maxlength="250" placeholder="Ex. Exporter les carrés sélectionnés" value="${esc(n?.title ?? '')}"/><label class="formlabel" for="note-body">Procédure / observations</label><textarea id="note-body" name="body" required rows="9" placeholder="Décris tes étapes et astuces…">${esc(n?.body ?? '')}</textarea><label class="formlabel" for="note-tags">Mots-clés (séparés par une virgule)</label><input id="note-tags" name="tags" maxlength="1500" value="${esc(n?.tags ?? '')}" placeholder="ex. layout, permis"/><div class="form-actions"><button type="button" class="btn" data-action="close-note">Annuler</button><button type="submit" class="btn primary">Enregistrer</button></div></form></div>`; }
+function render(restoreSearch = false) {
+    applyTheme();
+    const focused = document.activeElement?.id === 'search';
+    const pos = focused ? document.activeElement.selectionStart ?? q.length : 0;
+    const main = view === 'home' ? pageHome() : view === 'guides' ? pageGuides() : view === 'favorites' ? pageFavorites() : view === 'notes' ? pageNotes() : view === 'diagnostic' ? pageDiagnostic() : view === 'mining' ? pageMining() : pageSettings();
+    app.innerHTML = `<div class="shell"><aside class="sidebar"><div class="brand"><div class="brand-mark">A<span>◆</span></div><div><strong>ARCGUIDE</strong><small>ArcGIS Pro · Référence SIG</small></div></div><div class="nav-label">ESPACE DE TRAVAIL</div><nav aria-label="Navigation principale">${nav.slice(0, 6).map(n => `<button class="nav-item ${view === n.id ? 'active' : ''}" data-view="${n.id}"><span class="nav-icon">${n.icon}</span>${esc(n.label)}${n.id === 'favorites' && data.favorites.length ? `<span class="nav-count">${data.favorites.length}</span>` : ''}</button>`).join('')}</nav><div class="side-bottom"><button class="nav-item ${view === 'settings' ? 'active' : ''}" data-view="settings"><span class="nav-icon">⚙</span>Paramètres</button><div class="offline-chip"><span class="status-dot"></span> Bibliothèque locale disponible</div><div class="side-caption">ARCGUIDE · Préversion 1.0</div></div></aside><div class="main-column"><header class="topbar"><div class="breadcrumb"><span>ARCGUIDE</span><span class="slash">/</span><strong>${esc(nav.find(n => n.id === view)?.label)}</strong></div><div class="top-actions"><span class="desktop-only">${guides.length} fiches</span><button class="iconbtn" data-view="settings" aria-label="Paramètres">⚙</button></div></header><main class="content">${main}</main><footer class="footer">ARCGUIDE · Guide indépendant, non affilié à Esri <span>Documentation indicative · Mise à jour progressive</span></footer></div></div><nav class="mobile-nav" aria-label="Navigation mobile">${[nav[0], nav[1], nav[2], nav[4], nav[5]].map(n => `<button class="${view === n.id ? 'active' : ''}" data-view="${n.id}"><span>${n.icon}</span><small>${esc(n.label)}</small></button>`).join('')}</nav>${detail()}${noteModal()}`;
+    if (restoreSearch && focused) {
+        const x = document.querySelector('#search');
+        if (x) {
+            x.focus();
+            try {
+                x.setSelectionRange(pos, pos);
+            }
+            catch { }
+        }
+    }
+}
+function setView(v) { view = v; currentGuide = null; editNote = null; window.scrollTo(0, 0); render(); }
+async function handleAction(action, el) {
+    const id = el.dataset.id || '';
+    switch (action) {
+        case 'favorite':
+            data.favorites = data.favorites.includes(id) ? data.favorites.filter(x => x !== id) : [...data.favorites, id];
+            await persist();
+            render();
+            return;
+        case 'category':
+            category = el.dataset.cat || 'Tous';
+            q = '';
+            setView('guides');
+            return;
+        case 'filter':
+            category = el.dataset.cat || 'Tous';
+            render();
+            return;
+        case 'clear-search':
+            q = '';
+            category = 'Tous';
+            render();
+            return;
+        case 'close-modal':
+            currentGuide = null;
+            render();
+            return;
+        case 'copy-path': {
+            const g = guides.find(x => x.id === id);
+            if (g) {
+                await navigator.clipboard.writeText(g.path).then(() => notify('Chemin copié')).catch(() => notify('Copie non disponible.'));
+            }
+            return;
+        }
+        case 'copy-guide': {
+            const g = guides.find(x => x.id === id);
+            if (g) {
+                const text = `${g.title}\nOutil : ${g.tool}\nChemin : ${g.path}\n${g.steps.map((s, i) => `${i + 1}. ${s}`).join('\n')}\nAstuce : ${g.tip}`;
+                await navigator.clipboard.writeText(text).then(() => notify('Procédure copiée')).catch(() => notify('Copie non disponible.'));
+            }
+            return;
+        }
+        case 'print':
+            window.print();
+            return;
+        case 'new-note':
+            editNote = 'new';
+            render();
+            return;
+        case 'edit-note':
+            editNote = id;
+            render();
+            return;
+        case 'delete-note': {
+            const n = data.notes.find(n => n.id === id);
+            if (n && confirm(`Supprimer « ${n.title} » ?`)) {
+                data.notes = data.notes.filter(n => n.id !== id);
+                await persist();
+                render();
+                notify('Note supprimée');
+            }
+            return;
+        }
+        case 'close-note':
+            editNote = null;
+            render();
+            return;
+        case 'diag':
+            diag = id;
+            diagMode = '';
+            render();
+            return;
+        case 'diag-choice':
+            diagMode = id;
+            render();
+            return;
+        case 'clear-checklist':
+            if (confirm('Réinitialiser cette checklist ?')) {
+                data.checklist = {};
+                await persist();
+                render();
+            }
+            return;
+        case 'export-backup':
+            download(JSON.stringify(makeBackup(data), null, 2), `arcguide-sauvegarde-${new Date().toISOString().slice(0, 10)}.json`);
+            notify('Sauvegarde exportée');
+            return;
+        case 'import-backup':
+            document.querySelector('#backup-file')?.click();
+            return;
+        case 'clear-history':
+            if (confirm('Effacer l’historique de consultation ?')) {
+                data.history = [];
+                await persist();
+                render();
+                notify('Historique effacé');
+            }
+            return;
+        case 'install':
+            if (beforeInstall) {
+                beforeInstall.prompt();
+                beforeInstall = null;
+            }
+            else {
+                notify('Dans Chrome ou Edge : menu du navigateur → Installer l’application.');
+            }
+            return;
+        case 'offline-test': {
+            if (!('caches' in window)) {
+                notify('Cache indisponible dans ce contexte.');
+                return;
+            }
+            const cache = await caches.match('./guides.json');
+            notify(cache ? 'Le catalogue est présent en cache hors ligne.' : 'Cache pas encore prêt : ouvrir l’application une première fois avec Internet.');
+            return;
+        }
+    }
+}
+document.addEventListener('click', ev => {
+    const t = ev.target;
+    const act = t.closest('[data-action]');
+    if (act) {
+        if (act.classList.contains('modal-backdrop') && t !== act)
+            return;
+        ev.stopPropagation();
+        void handleAction(act.dataset.action || '', act);
+        return;
+    }
+    const v = t.closest('[data-view]');
+    if (v) {
+        setView(v.dataset.view);
+        return;
+    }
+    const g = t.closest('[data-open]');
+    if (g)
+        openGuide(g.dataset.open || '');
+});
+document.addEventListener('keydown', ev => {
+    const tag = ev.target?.tagName;
+    if (ev.key === 'Escape') {
+        if (currentGuide) {
+            currentGuide = null;
+            render();
+        }
+        else if (editNote !== null) {
+            editNote = null;
+            render();
+        }
+        return;
+    }
+    if (ev.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) {
+        ev.preventDefault();
+        if (view !== 'home' && view !== 'guides')
+            setView('guides');
+        document.querySelector('#search')?.focus();
+    }
+    if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.hasAttribute('data-open')) {
+        ev.preventDefault();
+        openGuide(ev.target.dataset.open || '');
+    }
+});
+document.addEventListener('input', ev => { const t = ev.target; if (t.id === 'search') {
+    q = t.value;
+    if (view === 'home' && q.trim())
+        view = 'guides';
+    render(true);
+} });
+document.addEventListener('change', ev => {
+    const t = ev.target;
+    if (t.id === 'theme') {
+        data.preferences.theme = t.value;
+        void persist();
+        render();
+    }
+    else if (t.id === 'compact') {
+        data.preferences.compact = t.checked;
+        void persist();
+        render();
+    }
+    else if (t.dataset.check) {
+        data.checklist[t.dataset.check] = t.checked;
+        void persist();
+        render();
+    }
+    else if (t.id === 'backup-file' && t.files?.[0]) {
+        const f = t.files[0];
+        if (f.size > 5_000_000) {
+            notify('Sauvegarde trop volumineuse (max. 5 Mo).');
+            return;
+        }
+        void f.text().then(raw => { const imported = validateBackup(JSON.parse(raw)); const msg = `Sauvegarde valide : ${imported.notes.length} note(s), ${imported.favorites.length} favori(s).\nRestaurer remplacera les données actuelles sur cet appareil. Continuer ?`; if (confirm(msg)) {
+            data = imported;
+            void persist();
+            render();
+            notify('Sauvegarde restaurée.');
+        } }).catch(e => notify(`Import refusé : ${e instanceof Error ? e.message : 'format invalide'}`));
+        t.value = '';
+    }
+});
+document.addEventListener('submit', ev => {
+    const form = ev.target;
+    if (form.id !== 'note-form')
+        return;
+    ev.preventDefault();
+    const fd = new FormData(form);
+    const title = String(fd.get('title') || '').trim(), body = String(fd.get('body') || '').trim(), tags = String(fd.get('tags') || '').trim();
+    if (!title || !body) {
+        notify('Titre et contenu obligatoires.');
+        return;
+    }
+    const found = data.notes.find(n => n.id === editNote);
+    if (found) {
+        Object.assign(found, { title, body, tags, updated: Date.now() });
+    }
+    else {
+        const note = { id: crypto.randomUUID(), title, body, tags, updated: Date.now() };
+        data.notes.push(note);
+    }
+    editNote = null;
+    void persist();
+    render();
+    notify('Note enregistrée');
+});
+window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); beforeInstall = e; });
+window.addEventListener('online', () => notify('Connexion rétablie.'));
+window.addEventListener('offline', () => notify('Mode hors ligne activé.'));
+async function boot() {
+    try {
+        const [resp, loaded] = await Promise.all([Promise.resolve({ok:true,json:async()=>INLINE_GUIDES}), loadData()]);
+        if (!resp.ok)
+            throw Error(`HTTP ${resp.status}`);
+        const js = await resp.json();
+        if (!Array.isArray(js) || !js.length)
+            throw Error('Bibliothèque invalide');
+        guides = js;
+        data = loaded;
+        render();
+        if (false && 'serviceWorker' in navigator && location.protocol !== 'file:')
+            navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(e => console.warn('Service Worker', e));
+    }
+    catch (e) {
+        app.innerHTML = `<div class="fatal"><h1>ARCGUIDE</h1><h2>Bibliothèque indisponible</h2><p>Ouvre l'application une première fois avec une connexion Internet pour installer les ressources locales.</p><p class="small-muted">${esc(e instanceof Error ? e.message : String(e))}</p><button class="btn primary" onclick="location.reload()">Réessayer</button></div>`;
+    }
+}
+void boot();
+</script><script>if("serviceWorker" in navigator && location.protocol==="https:"){navigator.serviceWorker.register("./sw.js").catch(e=>console.warn("SW",e))}</script></body></html>
