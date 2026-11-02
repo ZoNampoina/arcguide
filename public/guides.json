@@ -1,0 +1,1050 @@
+[
+  {
+    "id": "SEL-001",
+    "category": "Sélection & couches",
+    "title": "Sélectionner des points dans un polygone",
+    "tool": "Select By Location",
+    "path": "Map > Selection > Select By Location",
+    "summary": "Sélectionner les points selon une relation spatiale avec un périmètre.",
+    "steps": [
+      "Choisir les points comme Input Features.",
+      "Choisir la relation Within pour les points strictement à l’intérieur, ou Intersect si la frontière doit être incluse.",
+      "Indiquer les polygones dans Selecting Features.",
+      "Exécuter et vérifier le nombre d’entités sélectionnées."
+    ],
+    "tip": "Une sélection ne crée pas de nouvelles données : utiliser Export Features pour conserver le résultat.",
+    "verify": "Vérifier la sélection dans la table attributaire et contrôler des points aux limites.",
+    "common": "Within et Intersect ne donnent pas nécessairement les mêmes résultats sur la frontière.",
+    "keywords": [
+      "polygone",
+      "points",
+      "carrés",
+      "within",
+      "intersection",
+      "selection",
+      "spatial"
+    ],
+    "source": "https://pro.arcgis.com/en/pro-app/3.6/tool-reference/data-management/select-layer-by-location.htm",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-002",
+    "category": "Sélection & couches",
+    "title": "Sélectionner selon un attribut",
+    "tool": "Select By Attributes",
+    "path": "Map > Selection > Select By Attributes",
+    "summary": "Filtrer des entités à partir de leurs attributs.",
+    "steps": [
+      "Choisir la couche cible.",
+      "Construire la clause SQL avec un champ, un opérateur et une valeur.",
+      "Tester l’expression puis exécuter.",
+      "Vérifier les lignes sélectionnées dans la table."
+    ],
+    "tip": "Utiliser IS NULL pour les valeurs nulles plutôt que = NULL.",
+    "verify": "La sélection correspond à la clause attendue.",
+    "common": "Vérifier les guillemets et les types texte/nombre.",
+    "keywords": [
+      "where",
+      "sql",
+      "attribut",
+      "permis",
+      "filtre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-003",
+    "category": "Sélection & couches",
+    "title": "Exporter uniquement les entités sélectionnées",
+    "tool": "Export Features",
+    "path": "Data > Export Features",
+    "summary": "Créer une classe d’entités à partir d’une sélection.",
+    "steps": [
+      "Sélectionner les entités voulues.",
+      "Ouvrir Export Features depuis la couche.",
+      "Définir la géodatabase et le nom de sortie.",
+      "Exécuter puis comparer le nombre d’entités."
+    ],
+    "tip": "Contrôler qu’une sélection est active avant l’export.",
+    "verify": "La nouvelle classe ne contient que les entités souhaitées.",
+    "common": "Une couche filtrée par requête de définition peut aussi limiter les données exportées.",
+    "keywords": [
+      "exporter",
+      "copie",
+      "sélection"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-004",
+    "category": "Sélection & couches",
+    "title": "Isoler temporairement des entités",
+    "tool": "Definition Query",
+    "path": "Layer Properties > Definition Query",
+    "summary": "Afficher seulement les entités qui respectent une condition.",
+    "steps": [
+      "Ouvrir les propriétés de la couche.",
+      "Ajouter une Definition Query.",
+      "Construire la condition et appliquer.",
+      "Vérifier la table et l’affichage."
+    ],
+    "tip": "La requête masque sans supprimer les entités source.",
+    "verify": "La carte reflète le filtre tandis que la source demeure intacte.",
+    "common": "Ne pas confondre Definition Query et Select By Attributes.",
+    "keywords": [
+      "definition",
+      "query",
+      "masquer",
+      "filtrer"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "SEL-005",
+    "category": "Sélection & couches",
+    "title": "Retrouver une couche ou une emprise",
+    "tool": "Zoom To Layer",
+    "path": "Contents > clic droit sur la couche > Zoom To Layer",
+    "summary": "Centrer l’affichage sur l’étendue des entités.",
+    "steps": [
+      "Repérer la couche dans Contents.",
+      "Clic droit, choisir Zoom To Layer.",
+      "Vérifier l’étendue des données.",
+      "Contrôler les filtres si la couche reste invisible."
+    ],
+    "tip": "Une couche géographiquement mal positionnée peut sembler absente.",
+    "verify": "La carte montre normalement les entités de la couche.",
+    "common": "Vérifier aussi les plages d’échelle de visibilité.",
+    "keywords": [
+      "zoom",
+      "invisible",
+      "étendue"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-001",
+    "category": "Données & tables",
+    "title": "Importer un tableau de coordonnées X/Y",
+    "tool": "XY Table To Point",
+    "path": "Analysis > Tools > XY Table To Point",
+    "summary": "Convertir une table Excel ou CSV en couche de points.",
+    "steps": [
+      "Importer une table contenant X et Y numériques.",
+      "Choisir la table, les champs X et Y, et la sortie.",
+      "Définir le système de coordonnées SOURCE réel des valeurs.",
+      "Exécuter, visualiser et contrôler avec un point connu."
+    ],
+    "tip": "WGS84 n’est pas adapté par défaut aux X/Y projetés Laborde : préciser le système exact.",
+    "verify": "Comparer au moins un point à une référence fiable.",
+    "common": "Confondre longitude/latitude, X/Y et systèmes projetés est une erreur fréquente.",
+    "keywords": [
+      "excel",
+      "csv",
+      "coordonnées",
+      "gps",
+      "xy",
+      "point",
+      "laborde"
+    ],
+    "source": "https://pro.arcgis.com/en/pro-app/3.6/tool-reference/data-management/xy-table-to-point.htm",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-002",
+    "category": "Données & tables",
+    "title": "Calculer la surface ou longueur",
+    "tool": "Calculate Geometry Attributes",
+    "path": "Analysis > Tools > Calculate Geometry Attributes",
+    "summary": "Ajouter des surfaces, longueurs ou coordonnées dans les attributs.",
+    "steps": [
+      "Ajouter un champ de destination approprié.",
+      "Ouvrir Calculate Geometry Attributes.",
+      "Choisir la propriété et les unités.",
+      "Exécuter puis comparer à une géométrie témoin."
+    ],
+    "tip": "Pour les hectares, préciser l’unité de calcul et la méthode appropriée.",
+    "verify": "Les unités et valeurs affichées sont cohérentes.",
+    "common": "Les unités de la couche ne sont pas automatiquement des hectares.",
+    "keywords": [
+      "surface",
+      "hectare",
+      "longueur",
+      "area",
+      "geometry"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-003",
+    "category": "Données & tables",
+    "title": "Joindre une table Excel à une couche",
+    "tool": "Add Join",
+    "path": "Data > Joins and Relates > Add Join",
+    "summary": "Associer des attributs tabulaires à une couche grâce à une clé.",
+    "steps": [
+      "Vérifier que les deux tables ont une clé comparable.",
+      "Préparer les types et formats des identifiants.",
+      "Exécuter Add Join avec les champs clés.",
+      "Contrôler les lignes sans correspondance."
+    ],
+    "tip": "Éviter les espaces invisibles et doublons dans les identifiants.",
+    "verify": "Un échantillon de lignes possède les bonnes valeurs jointes.",
+    "common": "La jointure peut être un-à-plusieurs selon les paramètres et sources.",
+    "keywords": [
+      "join",
+      "jointure",
+      "excel",
+      "id",
+      "table"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-004",
+    "category": "Données & tables",
+    "title": "Compter les valeurs répétées dans une table",
+    "tool": "Summary Statistics",
+    "path": "Analysis > Tools > Summary Statistics",
+    "summary": "Compter les occurrences par exploitant ou identifiant.",
+    "steps": [
+      "Choisir la table.",
+      "Indiquer un champ de regroupement dans Case Field.",
+      "Ajouter un comptage comme statistique si nécessaire.",
+      "Trier les résultats par fréquence."
+    ],
+    "tip": "Utile pour identifier plusieurs enregistrements d’un même titulaire minier.",
+    "verify": "Le total des groupes est cohérent avec les lignes source.",
+    "common": "Nettoyer les variantes orthographiques avant de compter.",
+    "keywords": [
+      "doublon",
+      "comptage",
+      "exploitant",
+      "fréquence"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "TAB-005",
+    "category": "Données & tables",
+    "title": "Nettoyer les champs de la table attributaire",
+    "tool": "Fields View",
+    "path": "Data > Fields",
+    "summary": "Renommer l’affichage d’un champ et gérer les propriétés autorisées.",
+    "steps": [
+      "Ouvrir Fields pour la couche.",
+      "Distinguer nom physique et Alias.",
+      "Modifier l’alias si permis.",
+      "Enregistrer les changements."
+    ],
+    "tip": "L’alias améliore la lecture sans toujours renommer le champ source.",
+    "verify": "La nouvelle étiquette de champ apparaît dans la table.",
+    "common": "Certaines propriétés sont non modifiables selon la source.",
+    "keywords": [
+      "alias",
+      "champ",
+      "fields",
+      "table"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-001",
+    "category": "Géotraitement",
+    "title": "Découper une couche avec un périmètre",
+    "tool": "Clip",
+    "path": "Analysis > Tools > Clip",
+    "summary": "Conserver les parties d’entités situées dans une zone de découpe.",
+    "steps": [
+      "Choisir les entités à découper.",
+      "Choisir le polygone de découpe.",
+      "Définir la sortie.",
+      "Exécuter et vérifier l’étendue."
+    ],
+    "tip": "Une découpe modifie la géométrie des sorties, pas les sources.",
+    "verify": "Aucune sortie ne dépasse le périmètre de découpe attendu.",
+    "common": "Contrôler le système de coordonnées et la validité des géométries.",
+    "keywords": [
+      "clip",
+      "découpage",
+      "périmètre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-002",
+    "category": "Géotraitement",
+    "title": "Créer une zone tampon autour d’une route",
+    "tool": "Buffer",
+    "path": "Analysis > Tools > Buffer",
+    "summary": "Construire une zone à distance fixe d’objets.",
+    "steps": [
+      "Choisir les objets (route, point, périmètre).",
+      "Définir distance et unité.",
+      "Choisir si les zones doivent être fusionnées.",
+      "Contrôler le résultat sur la carte."
+    ],
+    "tip": "Pour une distance métrique, vérifier la projection et la méthode géodésique/planaire.",
+    "verify": "La distance mesurée correspond à la méthode choisie.",
+    "common": "Des degrés ne sont pas des mètres.",
+    "keywords": [
+      "buffer",
+      "tampon",
+      "distance",
+      "route"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-003",
+    "category": "Géotraitement",
+    "title": "Trouver les zones de recouvrement",
+    "tool": "Intersect",
+    "path": "Analysis > Tools > Intersect",
+    "summary": "Créer la partie géométrique commune à plusieurs couches.",
+    "steps": [
+      "Choisir les couches en entrée.",
+      "Vérifier leur géométrie et leurs référentiels.",
+      "Définir la sortie et exécuter.",
+      "Contrôler les intersections au visuel."
+    ],
+    "tip": "Utile pour recoupements de périmètres et contraintes environnementales.",
+    "verify": "Les sorties sont dans les zones de recouvrement.",
+    "common": "L’absence de résultat peut venir d’emprises non superposées.",
+    "keywords": [
+      "overlap",
+      "intersect",
+      "recouvrement"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-004",
+    "category": "Géotraitement",
+    "title": "Fusionner les entités par attribut",
+    "tool": "Dissolve",
+    "path": "Analysis > Tools > Dissolve",
+    "summary": "Fusionner des géométries partageant une valeur.",
+    "steps": [
+      "Choisir la couche.",
+      "Sélectionner les champs de regroupement.",
+      "Définir la sortie.",
+      "Vérifier le nombre et la forme des entités."
+    ],
+    "tip": "Ne pas confondre Dissolve (fusion de contours) et Merge (regroupement de données).",
+    "verify": "Les entités ont été regroupées selon le champ.",
+    "common": "Attention aux multiparties et aux attributs conservés.",
+    "keywords": [
+      "dissolve",
+      "fusion",
+      "polygones"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-005",
+    "category": "Géotraitement",
+    "title": "Reporter des attributs par relation spatiale",
+    "tool": "Spatial Join",
+    "path": "Analysis > Tools > Spatial Join",
+    "summary": "Associer les attributs d’une couche à une autre selon leur position.",
+    "steps": [
+      "Choisir Target Features et Join Features.",
+      "Définir la relation spatiale.",
+      "Choisir les règles de correspondance et de regroupement.",
+      "Exécuter et vérifier les lignes résultantes."
+    ],
+    "tip": "Peut enrichir des points terrain avec l’identifiant du périmètre traversé.",
+    "verify": "La table de sortie contient les attributs attendus.",
+    "common": "Vérifier one-to-one versus one-to-many.",
+    "keywords": [
+      "jointure spatiale",
+      "géospatial",
+      "points",
+      "permis"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "GEO-006",
+    "category": "Géotraitement",
+    "title": "Corriger des géométries problématiques",
+    "tool": "Repair Geometry",
+    "path": "Analysis > Tools > Check Geometry / Repair Geometry",
+    "summary": "Diagnostiquer puis réparer certaines anomalies géométriques.",
+    "steps": [
+      "Faire une copie de la source.",
+      "Exécuter Check Geometry.",
+      "Examiner les anomalies signalées.",
+      "Tester Repair Geometry sur une copie et revérifier."
+    ],
+    "tip": "Ne pas lancer de réparation irréversible sans sauvegarde préalable.",
+    "verify": "Le contrôle final ne retrouve pas les anomalies traitées.",
+    "common": "Les réparations possibles dépendent du format et de la nature des erreurs.",
+    "keywords": [
+      "géométrie",
+      "invalide",
+      "repair"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-001",
+    "category": "Coordonnées & projections",
+    "title": "Corriger une couche avec référentiel inconnu",
+    "tool": "Define Projection",
+    "path": "Analysis > Tools > Define Projection",
+    "summary": "Attribuer la définition correcte du système de coordonnées, sans changer les X/Y.",
+    "steps": [
+      "Identifier le référentiel source par une source fiable.",
+      "Ouvrir Define Projection.",
+      "Sélectionner le référentiel exact.",
+      "Contrôler la localisation sur la carte."
+    ],
+    "tip": "Define Projection ne reprojette pas les coordonnées : utiliser Project pour transformer les valeurs.",
+    "verify": "Comparer la couche à des points de contrôle connus.",
+    "common": "Ne jamais attribuer WGS84 au hasard à une couche Laborde.",
+    "keywords": [
+      "projection",
+      "define",
+      "crs",
+      "srid",
+      "epsg"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-002",
+    "category": "Coordonnées & projections",
+    "title": "Transformer des données dans un autre système",
+    "tool": "Project",
+    "path": "Analysis > Tools > Project",
+    "summary": "Créer une copie dans un système de coordonnées cible.",
+    "steps": [
+      "Identifier correctement le système source.",
+      "Ouvrir Project et sélectionner la couche.",
+      "Choisir le système cible et, si nécessaire, une transformation géographique valable.",
+      "Contrôler les coordonnées et la localisation après l’export."
+    ],
+    "tip": "Une transformation de datum appropriée peut être nécessaire.",
+    "verify": "Un point contrôle reste à la bonne position au sol.",
+    "common": "La transformation appropriée dépend des référentiels et de la zone.",
+    "keywords": [
+      "reprojection",
+      "wgs84",
+      "utm",
+      "laborde",
+      "project"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-003",
+    "category": "Coordonnées & projections",
+    "title": "Lire correctement une coordonnée GPS",
+    "tool": "WGS84 longitude / latitude",
+    "path": "Map > Go To XY (selon version)",
+    "summary": "Distinguer coordonnées géographiques et coordonnées projetées.",
+    "steps": [
+      "Identifier si les valeurs sont en degrés ou en mètres.",
+      "Pour WGS84 géographique, longitude = X et latitude = Y.",
+      "Contrôler le signe des latitudes/longitudes.",
+      "Comparer à un point connu."
+    ],
+    "tip": "À Madagascar, les latitudes géographiques sont généralement négatives.",
+    "verify": "Le point apparaît dans la région attendue.",
+    "common": "Une inversion longitude/latitude produit un point mal placé.",
+    "keywords": [
+      "gps",
+      "latitude",
+      "longitude",
+      "wgs84"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "CRS-004",
+    "category": "Coordonnées & projections",
+    "title": "Vérifier les données en Laborde Madagascar",
+    "tool": "Coordinate Systems",
+    "path": "Map Properties > Coordinate Systems",
+    "summary": "Éviter les confusions entre variantes de projection et transformations.",
+    "steps": [
+      "Consulter les métadonnées et la provenance des coordonnées.",
+      "Identifier la définition exacte du système de référence utilisé.",
+      "Appliquer le bon système source, puis une transformation justifiée si nécessaire.",
+      "Comparer plusieurs points à un fond géoréférencé fiable."
+    ],
+    "tip": "Ne pas inventer le code EPSG ou les paramètres : vérifier le référentiel effectivement fourni par le producteur.",
+    "verify": "Les points témoins présentent des écarts compatibles avec la précision attendue.",
+    "common": "Une superposition visuelle ne suffit pas pour valider un référentiel.",
+    "keywords": [
+      "laborde",
+      "madagascar",
+      "bcmm",
+      "datum",
+      "projection"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-001",
+    "category": "Cartographie & layout",
+    "title": "Créer une mise en page A4 portrait",
+    "tool": "New Layout",
+    "path": "Insert > New Layout",
+    "summary": "Préparer une feuille de cartographie imprimable.",
+    "steps": [
+      "Ouvrir Insert > New Layout.",
+      "Choisir A4 Portrait ou une taille personnalisée équivalente.",
+      "Ajouter Map Frame et les éléments cartographiques.",
+      "Exporter à une résolution adaptée."
+    ],
+    "tip": "Vérifier dimensions, marges et lisibilité à 100 %.",
+    "verify": "La carte est cadrée avec marges cohérentes.",
+    "common": "Ne pas confondre taille écran et taille du papier.",
+    "keywords": [
+      "a4",
+      "layout",
+      "portrait",
+      "cartographie"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-002",
+    "category": "Cartographie & layout",
+    "title": "Conserver deux layouts avec cartes indépendantes",
+    "tool": "Duplicate Map / Map Frame",
+    "path": "Catalog > Maps ; Insert > Map Frame",
+    "summary": "Éviter que la visibilité des couches change dans plusieurs mises en page.",
+    "steps": [
+      "Dupliquer la carte dans Catalog > Maps.",
+      "Configurer les couches de la carte dupliquée.",
+      "Associer chaque layout à sa propre carte via le Map Frame.",
+      "Vérifier qu’une modification de visibilité n’affecte pas l’autre layout."
+    ],
+    "tip": "Les étendues des Map Frames sont indépendantes, mais les couches restent partagées si elles pointent sur la même carte.",
+    "verify": "Masquer une couche dans la copie ne doit pas la masquer dans l’original.",
+    "common": "Copier le layout seul ne sépare pas les cartes.",
+    "keywords": [
+      "geler",
+      "freeze",
+      "layout",
+      "carte",
+      "indépendant"
+    ],
+    "source": "https://pro.arcgis.com/en/pro-app/3.6/help/layouts/add-and-modify-map-frames.htm",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-003",
+    "category": "Cartographie & layout",
+    "title": "Ajouter une grille de coordonnées",
+    "tool": "Add Grid",
+    "path": "Layout > sélectionner Map Frame > Add Grid",
+    "summary": "Afficher la grille ou le graticule adapté au référentiel de la carte.",
+    "steps": [
+      "Sélectionner le Map Frame dans le Layout.",
+      "Choisir Add Grid et le type approprié.",
+      "Configurer l’espacement, les unités, les étiquettes et les bordures.",
+      "Contrôler les valeurs et éviter les chevauchements."
+    ],
+    "tip": "Ne pas confondre graticule de latitude/longitude avec grille projetée.",
+    "verify": "Les graduations correspondent au système annoncé.",
+    "common": "Des unités mal choisies rendent la grille trompeuse.",
+    "keywords": [
+      "grille",
+      "graticule",
+      "coordonnées",
+      "layout"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-004",
+    "category": "Cartographie & layout",
+    "title": "Exporter une carte en PDF",
+    "tool": "Export Layout",
+    "path": "Share > Export Layout",
+    "summary": "Créer un PDF lisible à partir du Layout.",
+    "steps": [
+      "Vérifier l’étendue et la lisibilité.",
+      "Choisir Share > Export Layout.",
+      "Choisir PDF et les options de qualité.",
+      "Exporter puis ouvrir le fichier final pour contrôle."
+    ],
+    "tip": "Faire une vérification du PDF exporté, pas seulement de l’aperçu.",
+    "verify": "Titre, grille, légende et traits restent nets.",
+    "common": "Attention aux polices, transparences et images lourdes.",
+    "keywords": [
+      "pdf",
+      "export",
+      "résolution",
+      "impression"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-005",
+    "category": "Cartographie & layout",
+    "title": "Créer et utiliser des signets",
+    "tool": "Bookmarks",
+    "path": "Map > Bookmarks",
+    "summary": "Revenir rapidement aux zones géographiques utilisées.",
+    "steps": [
+      "Positionner l’affichage.",
+      "Créer un nouveau Bookmark.",
+      "Nommer le lieu ou le périmètre.",
+      "Utiliser les signets pour retrouver la vue."
+    ],
+    "tip": "Pratique pour basculer entre plusieurs permis.",
+    "verify": "Le signet replace la vue à l’emprise voulue.",
+    "common": "Les signets mémorisent une vue, pas une nouvelle copie des données.",
+    "keywords": [
+      "signet",
+      "bookmark",
+      "extent"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MAP-006",
+    "category": "Cartographie & layout",
+    "title": "Ajouter une légende et une échelle",
+    "tool": "Legend / Scale Bar",
+    "path": "Insert > Map Surrounds",
+    "summary": "Documenter une carte pour une lecture autonome.",
+    "steps": [
+      "Insérer une légende liée au Map Frame.",
+      "Retirer les couches qui ne doivent pas apparaître.",
+      "Ajouter une échelle graphique et vérifier les unités.",
+      "Contrôler le résultat sur le format final."
+    ],
+    "tip": "Alléger la légende plutôt que montrer tous les éléments techniques.",
+    "verify": "La légende correspond aux symboles réellement affichés.",
+    "common": "Échelle et légende dépendent du Map Frame associé.",
+    "keywords": [
+      "légende",
+      "scale",
+      "échelle",
+      "carte"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "LBL-001",
+    "category": "Étiquettes & symbologie",
+    "title": "Afficher les coordonnées X et Y comme étiquettes",
+    "tool": "Label Expression",
+    "path": "Labeling > Expression",
+    "summary": "Construire une étiquette contenant les coordonnées ou champs souhaités.",
+    "steps": [
+      "Vérifier les champs de coordonnées disponibles.",
+      "Activer Label sur la couche.",
+      "Créer une expression ArcGIS Arcade ou sélectionner les champs.",
+      "Contrôler format, décimales et placement."
+    ],
+    "tip": "Les champs X/Y stockés peuvent différer des coordonnées actuelles de la géométrie.",
+    "verify": "Une étiquette correspond à l’entité test.",
+    "common": "Ne pas confondre longitude/latitude et coordonnées projetées.",
+    "keywords": [
+      "label",
+      "xy",
+      "arcade",
+      "expression"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "LBL-002",
+    "category": "Étiquettes & symbologie",
+    "title": "Étiqueter seulement les points du périmètre",
+    "tool": "Select By Location + Export Features",
+    "path": "Map > Select By Location",
+    "summary": "Éviter les étiquettes de points situés hors de la zone souhaitée.",
+    "steps": [
+      "Sélectionner les points appartenant au périmètre.",
+      "Exporter la sélection dans une couche dédiée.",
+      "Désactiver les labels de la couche d’origine.",
+      "Activer les labels sur la couche extraite."
+    ],
+    "tip": "Méthode robuste et simple si une couche dérivée est acceptable.",
+    "verify": "Seuls les points retenus portent une étiquette.",
+    "common": "Le choix Within/Intersect modifie les points sur la bordure.",
+    "keywords": [
+      "label",
+      "polygone",
+      "points",
+      "within"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "LBL-003",
+    "category": "Étiquettes & symbologie",
+    "title": "Colorer les entités par catégories",
+    "tool": "Unique Values Symbology",
+    "path": "Symbology > Unique Values",
+    "summary": "Différencier les permis ou types d’occupation par couleurs.",
+    "steps": [
+      "Ouvrir Symbology.",
+      "Choisir Unique Values.",
+      "Définir le champ de classification.",
+      "Ajuster les couleurs et la légende."
+    ],
+    "tip": "Garder des couleurs cohérentes d’une carte à l’autre.",
+    "verify": "Chaque valeur a le symbole attendu.",
+    "common": "Prévoir un symbole pour les valeurs nulles ou autres.",
+    "keywords": [
+      "symbologie",
+      "couleur",
+      "permis",
+      "catégorie"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-001",
+    "category": "SIG minier Madagascar",
+    "title": "Sélectionner les carrés d’un périmètre minier",
+    "tool": "Select By Location",
+    "path": "Map > Select By Location",
+    "summary": "Isoler les carrés miniers d’une emprise de travail.",
+    "steps": [
+      "Vérifier la couche officielle des carrés et son référentiel.",
+      "Ajouter ou créer le périmètre de sélection.",
+      "Choisir la relation spatiale conforme au besoin (intersecte, entièrement inclus, etc.).",
+      "Contrôler identifiants et nombre de carrés avant export."
+    ],
+    "tip": "Ne pas assimiler une sélection spatiale à une validation du statut juridique d’un permis.",
+    "verify": "La liste de carrés correspond aux données de référence utilisées.",
+    "common": "Les intersections marginales peuvent inclure des carrés non entièrement dans la zone.",
+    "keywords": [
+      "bcmm",
+      "carrés",
+      "minier",
+      "pr",
+      "pe",
+      "aerp"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-002",
+    "category": "SIG minier Madagascar",
+    "title": "Contrôler la superficie d’un permis",
+    "tool": "Calculate Geometry Attributes",
+    "path": "Analysis > Tools > Calculate Geometry Attributes",
+    "summary": "Vérifier une superficie calculée sans la confondre avec une superficie administrative.",
+    "steps": [
+      "Vérifier géométrie et référentiel.",
+      "Calculer une surface avec unités explicites.",
+      "Comparer au décompte de carrés et aux données officielles.",
+      "Documenter les écarts."
+    ],
+    "tip": "La valeur GIS peut différer de la valeur officielle selon les règles de comptabilisation.",
+    "verify": "La méthode et l’unité de superficie sont tracées.",
+    "common": "Ne pas arrondir avant les contrôles.",
+    "keywords": [
+      "superficie",
+      "hectare",
+      "minier",
+      "carre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-003",
+    "category": "SIG minier Madagascar",
+    "title": "Croiser un périmètre et des zones sensibles",
+    "tool": "Intersect / Clip",
+    "path": "Analysis > Tools > Intersect",
+    "summary": "Identifier les recouvrements géographiques à examiner.",
+    "steps": [
+      "Importer les périmètres et les zones sensibles avec sources connues.",
+      "Vérifier référentiels, dates et emprises.",
+      "Utiliser Intersect pour les recouvrements exacts ou Clip selon l’objectif.",
+      "Contrôler le résultat et documenter les sources."
+    ],
+    "tip": "Un recouvrement SIG ne suffit pas à établir une contrainte juridique : vérifier le texte et le statut applicable.",
+    "verify": "Les zones communes sont visibles et documentées.",
+    "common": "Attention aux données anciennes et aux couches généralisées.",
+    "keywords": [
+      "environnement",
+      "recouvrement",
+      "ptpf",
+      "prse",
+      "pee"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-004",
+    "category": "SIG minier Madagascar",
+    "title": "Importer les observations terrain de Tety",
+    "tool": "CSV / GeoJSON",
+    "path": "Map > Add Data",
+    "summary": "Préparer des points et traces de reconnaissance pour la cartographie.",
+    "steps": [
+      "Exporter les observations depuis Tety en CSV ou GeoJSON.",
+      "Vérifier les noms, coordonnées, dates et identifiants de permis.",
+      "Importer dans ArcGIS Pro et attribuer le bon référentiel source.",
+      "Contrôler les positions et enregistrer la classe d’entités."
+    ],
+    "tip": "Conserver un identifiant stable pour relier photos et notes au relevé.",
+    "verify": "Les coordonnées et identifiants sont cohérents avec l’export terrain.",
+    "common": "Ne pas transformer arbitrairement les coordonnées source.",
+    "keywords": [
+      "tety",
+      "terrain",
+      "gps",
+      "photo",
+      "geojson"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "MINE-005",
+    "category": "SIG minier Madagascar",
+    "title": "Préparer une carte pour un dossier PR / PTPF",
+    "tool": "Layout + cartographic checklist",
+    "path": "Insert > New Layout",
+    "summary": "Vérifier les informations cartographiques avant intégration au dossier.",
+    "steps": [
+      "Choisir un fond et des sources documentées.",
+      "Afficher le périmètre et ses références.",
+      "Ajouter titre, légende, échelle, nord et grille adaptés.",
+      "Exporter et contrôler le PDF en taille réelle."
+    ],
+    "tip": "Les exigences documentaires réelles doivent être vérifiées pour chaque procédure administrative.",
+    "verify": "Une personne extérieure peut identifier lieu, objet, date et source.",
+    "common": "Une carte esthétique peut être inexacte spatialement : vérifier le référentiel.",
+    "keywords": [
+      "pr",
+      "ptpf",
+      "plan",
+      "cadastre"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-001",
+    "category": "Dépannage",
+    "title": "Ma couche ne s’affiche pas",
+    "tool": "Zoom To Layer / Layer Properties",
+    "path": "Contents > Layer",
+    "summary": "Diagnostiquer une couche invisible malgré son chargement.",
+    "steps": [
+      "Vérifier la case de visibilité.",
+      "Utiliser Zoom To Layer.",
+      "Vérifier filtres et plage d’échelle.",
+      "Inspecter l’emprise et le système de coordonnées."
+    ],
+    "tip": "Vérifier aussi les groupes de couches parents masqués.",
+    "verify": "Une cause identifiable explique l’absence d’affichage.",
+    "common": "Une couche à une coordonnée aberrante peut être très éloignée.",
+    "keywords": [
+      "invisible",
+      "couche",
+      "afficher",
+      "projection"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-002",
+    "category": "Dépannage",
+    "title": "Mes points sont décalés de plusieurs kilomètres",
+    "tool": "Coordinate System / Project",
+    "path": "Map Properties > Coordinate Systems",
+    "summary": "Identifier un problème d’interprétation ou de transformation des coordonnées.",
+    "steps": [
+      "Vérifier la table X/Y et ses unités.",
+      "Vérifier la définition du système SOURCE.",
+      "Contrôler la transformation de datum et l’ordre des coordonnées.",
+      "Comparer à plusieurs points connus."
+    ],
+    "tip": "Ne pas corriger un décalage à l’œil en déplaçant les données avant diagnostic.",
+    "verify": "L’écart après traitement est compatible avec la précision attendue.",
+    "common": "Attention aux variantes de Laborde et aux valeurs X/Y inversées.",
+    "keywords": [
+      "decalage",
+      "position",
+      "coordonnées",
+      "laborde"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-003",
+    "category": "Dépannage",
+    "title": "Je ne vois plus les étiquettes",
+    "tool": "Labeling / Visibility Range",
+    "path": "Labeling > Label",
+    "summary": "Rétablir des étiquettes masquées ou non calculées.",
+    "steps": [
+      "Activer l’étiquetage.",
+      "Vérifier le champ ou l’expression.",
+      "Vérifier les classes, requêtes et plages d’échelle.",
+      "Contrôler les conflits de placement."
+    ],
+    "tip": "Faire le test avec une seule couche et une étiquette simple.",
+    "verify": "Un objet test porte son étiquette.",
+    "common": "Un label peut être supprimé par le moteur de placement.",
+    "keywords": [
+      "label",
+      "absent",
+      "etiquettes"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "FIX-004",
+    "category": "Dépannage",
+    "title": "Mon export PDF est vide ou incomplet",
+    "tool": "Export Layout",
+    "path": "Share > Export Layout",
+    "summary": "Isoler un problème d’étendue, visibilité ou qualité d’export.",
+    "steps": [
+      "Vérifier le Map Frame et ses couches.",
+      "Exporter avec des paramètres simples.",
+      "Ouvrir le fichier exporté hors ArcGIS.",
+      "Réintroduire progressivement les effets ou couches lourdes."
+    ],
+    "tip": "Garder une copie du Layout avant expérimentation.",
+    "verify": "Le PDF final affiche les contenus attendus.",
+    "common": "Comparer aperçu et fichier réellement généré.",
+    "keywords": [
+      "pdf",
+      "vide",
+      "export",
+      "layout"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "PROD-001",
+    "category": "Raccourcis & productivité",
+    "title": "Enregistrer son projet fréquemment",
+    "tool": "Save Project",
+    "path": "Quick Access Toolbar > Save",
+    "summary": "Réduire le risque de perdre des réglages cartographiques.",
+    "steps": [
+      "Utiliser la commande Save Project pendant le travail.",
+      "Vérifier que le projet possède un emplacement stable.",
+      "Pour une variante majeure, enregistrer une copie.",
+      "Documenter les changements importants."
+    ],
+    "tip": "Le fichier .aprx ne remplace pas la sauvegarde des données externes.",
+    "verify": "La date de sauvegarde du projet est actualisée.",
+    "common": "Un projet peut référencer des données situées ailleurs.",
+    "keywords": [
+      "save",
+      "enregistrer",
+      "aprx",
+      "productivité"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  },
+  {
+    "id": "PROD-002",
+    "category": "Raccourcis & productivité",
+    "title": "Créer un modèle reproductible",
+    "tool": "ModelBuilder",
+    "path": "Analysis > ModelBuilder",
+    "summary": "Automatiser une suite de géotraitements répétitifs.",
+    "steps": [
+      "Identifier les entrées et sorties de chaque outil.",
+      "Ajouter les outils au modèle.",
+      "Connecter les paramètres.",
+      "Exécuter sur un petit jeu de données puis valider les sorties."
+    ],
+    "tip": "Conserver un journal des traitements et ne pas écraser les données source.",
+    "verify": "Le modèle produit le même résultat sur un jeu test contrôlé.",
+    "common": "Certains outils exigent des licences ou extensions spécifiques.",
+    "keywords": [
+      "workflow",
+      "automatisation",
+      "modèle"
+    ],
+    "source": "",
+    "review": "à vérifier",
+    "level": "Essentiel"
+  }
+]
